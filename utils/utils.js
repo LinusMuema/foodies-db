@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const nodemailer = require("nodemailer");
+const bcrypt = require('bcrypt');
 const sendinBlue = require('nodemailer-sendinblue-transport');
 
 exports.hashPassword = (password) => {
