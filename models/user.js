@@ -7,7 +7,7 @@ exports.User = mongoose.model("User",
         intolerances: [],
         update: {
             type: Number,
-            default: new Date().getDate()
+            default: new Date().getDate() - 1
         },
         confirmed:{
             type: Boolean,
