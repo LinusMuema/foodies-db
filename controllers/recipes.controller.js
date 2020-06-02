@@ -17,3 +17,7 @@ exports.getRandomRecipes = (req, res) => {
         })
         .catch(error => {utils.handleServerError(res, error)})
 }
+
+exports.getRecipeById = (req, res) => {
+
+}
