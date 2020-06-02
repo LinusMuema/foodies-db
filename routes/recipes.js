@@ -5,4 +5,6 @@ const controller = require('../controllers/recipes.controller')
 
 router.get('/random', middleware.verify, controller.getRandomRecipes)
 
+router.get('/:id/instructions', middleware.verify, controller.getRecipeById)
+
 module.exports = router

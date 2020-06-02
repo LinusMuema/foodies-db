@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/moose.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/moose.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/recipes.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/recipes.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/recipe.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/recipe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/recipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/recipes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +112,8 @@
       <workItem from="1590949316738" duration="993000" />
       <workItem from="1591040229437" duration="2731000" />
       <workItem from="1591043298870" duration="1130000" />
-      <workItem from="1591076610677" duration="3636000" />
+      <workItem from="1591076610677" duration="9506000" />
+      <workItem from="1591095226823" duration="4811000" />
     </task>
     <servers />
   </component>
