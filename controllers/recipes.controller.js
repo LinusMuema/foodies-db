@@ -5,7 +5,7 @@ const utils = require('../utils/utils')
 
 exports.getRandomRecipes = (req, res) => {
     let intolerances= ''
-    userModel.findById(req._id)
+    userModel.User.findById(req._id)
         .then(user => {
             if (!user) return utils.handleNoUserError(res)
             user.intolerances.forEach((intolerance) => {
