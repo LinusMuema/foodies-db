@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .uk-position-center.uk-text-center
+        h1 Foodies
+        h3 Login to confirm your account
+        form(action='/api/auth/confirmAccount', method='POST')
+            .uk-margin
+                input.uk-input(type='email', name='email' placeholder='Enter your email', required='')
+            .uk-margin
+                input.uk-input(type='password', name='password' placeholder='Enter your password', required='')
+            div
+                button.uk-button.uk-button-danger(type='submit') Submit
+
+

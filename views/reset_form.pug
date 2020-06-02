@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    .uk-position-center.uk-text-center
+        h1 Foodies
+        h3 Fill in the details below to reset your password.
+        form(action='/api/auth/reset', method='POST')
+            .uk-margin
+                input.uk-input(type='email', id='email', name='email' placeholder='Enter your email', required='')
+            .uk-margin
+                input.uk-input(type='password', id='password', name='password' placeholder='Enter your password', required='')
+            .uk-margin
+                input.uk-input(type='password', id='password_rpt', name='password_rpt' placeholder='Confirm your password', required='')
+            .uk-alert-danger(uk-alert='', style='display: none;')
+                p
+                    | Passwords do not match.
+            div
+                button.uk-button.uk-button-danger(type='submit') Submit
+    script.
+        $(document).ready(function () {
+            $("form").submit(function (e) {
+                if ($("#password").val() !== $("#password_rpt").val()) {
+                    e.preventDefault();
+                    $(".uk-alert-danger").show()
+                }
+            });
+        });
