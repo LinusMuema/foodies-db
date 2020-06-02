@@ -1,9 +1,9 @@
 const User = require('../models/user');
 const utils = require('../utils/utils');
-const Intolerance = require('../models/intolerance');
+const model = require('../models/intolerance');
 
 exports.getAllIntolerances = (req, res) => {
-    Intolerance.find()
+    model.Intolerance.find()
         .then(intolerances => {
             if (!intolerances) return utils.handleServerError(res, null)
             res.status(200).json({message: 'success', intolerances})

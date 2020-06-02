@@ -1,19 +1,19 @@
-const User = require('../models/user');
+const userModel = require('../models/user');
 const bcrypt = require('bcrypt');
 const pug = require('pug');
 const utils = require('../utils/utils')
 
 const noUserMessage = 'No user with that email found. Please use the email registered during signup';
-const serverErrorMessage = 'Something went wrong. Please try again later. If the problem persists, please contact our customer service.';
+const serverErrorMessage = 'Something went wrong! Please try again later.';
 const passwordErrorMessage = 'check your password and try again!';
 
 exports.login = (req, res) => {
-    User.findOne({email: req.body.email})
+    userModel.User.findOne({email: req.body.email})
         .then(user => {
             if ((!user)){
                 utils.hashPassword(req.body.password)
                     .then(pass => {
-                        User({email: req.body.email,  password: pass}).save()
+                        userModel.User({email: req.body.email,  password: pass}).save()
                             .then(user => {
                                 const email = user.email;
                                 const html = pug.renderFile("views/welcome.pug", {email});
@@ -38,13 +38,13 @@ exports.login = (req, res) => {
 }
 
 exports.confirmAccount = (req, res) => {
-    User.findOne({email : req.body.email})
+    userModel.User.findOne({email : req.body.email})
         .then(user => {
             if(!user) return utils.loadError(res, noUserMessage);
             bcrypt.compare(req.body.password, user.password, (err, same) => {
                 if (err) return utils.loadError(res, serverErrorMessage);
                 if (!same) return utils.loadError(res, passwordErrorMessage);
-                User.updateOne({email: req.body.email}, {confirmed: true})
+                userModel.User.updateOne({email: req.body.email}, {confirmed: true})
                     .then( update => {utils.loadSuccess(res, "Your email has been confirmed. Now you can enjoy our app without any issues.")})
                     .catch(error => {utils.loadError(res, serverErrorMessage)})
             })
@@ -53,7 +53,7 @@ exports.confirmAccount = (req, res) => {
 }
 
 exports.resetEmail = (req, res) => {
-    User.findOne({email: req.params.email})
+    userModel.User.findOne({email: req.params.email})
         .then(user => {
             if(!user) return res.status(404).json({message: 'error', reason: noUserMessage})
             const email = req.params.email;
@@ -67,12 +67,12 @@ exports.resetEmail = (req, res) => {
 }
 
 exports.postReset = (req, res) => {
-    User.findOne({email: req.body.email})
+    userModel.User.findOne({email: req.body.email})
         .then(user => {
             if (!user) return utils.loadError(res, noUserMessage)
             utils.hashPassword(req.body.password)
                 .then(pass => {
-                    User.updateOne({email: req.body.email}, {password: pass})
+                    userModel.User.updateOne({email: req.body.email}, {password: pass})
                         .then( update => {utils.loadSuccess(res, "Your password has been reset. Go back and try to login with the new password.")})
                         .catch(error => {utils.loadError(res, serverErrorMessage)})
                 })
