@@ -5,6 +5,10 @@ exports.User = mongoose.model("User",
         email: String,
         password: String,
         intolerances: [],
+        update: {
+            type: Number,
+            default: new Date().getDate()
+        },
         confirmed:{
             type: Boolean,
             default: false

@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/intolerances.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/intolerances.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/recipes.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/recipes.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/intolerance.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/intolerance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/recipe.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/recipe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/intolerances.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/intolerances.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +33,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.0" />
@@ -116,7 +112,9 @@
       <workItem from="1591040229437" duration="2731000" />
       <workItem from="1591043298870" duration="1130000" />
       <workItem from="1591076610677" duration="9506000" />
-      <workItem from="1591095226823" duration="5785000" />
+      <workItem from="1591095226823" duration="6474000" />
+      <workItem from="1591114211358" duration="255000" />
+      <workItem from="1591115593675" duration="1760000" />
     </task>
     <servers />
   </component>
@@ -147,5 +145,9 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="624" y="254" key="run.anything.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1591077290452" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1591117036323">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1591117036323" />
   </component>
 </project>
