@@ -5,6 +5,6 @@ const controller = require('../controllers/intolerances.controller')
 
 router.get('/', controller.getAllIntolerances)
 
-router.post('/', [middleware.verify,middleware.checkUpdate], controller.updateIntolerances)
+router.post('/', middleware.verify, controller.updateIntolerances)
 
 module.exports = router

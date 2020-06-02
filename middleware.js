@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken')
 const userModel = require('./models/user')
 
 exports.verify = (req, res, next) => {
-    console.log("verify")
     const token = req.headers.authorization
     if (!token) return res.status(403).json({message: 'error', reason: 'please provide an bearer token'})
     jwt.verify(token.split(" ")[1], process.env.TOKEN_SECRET, (err, value) => {
@@ -18,7 +17,6 @@ exports.verify = (req, res, next) => {
 }
 
 exports.checkUpdate = (req, res, next) => {
-    console.log("checkupdate")
     userModel.User.findById(req._id)
         .then(user => {
             console.log(user.update)
