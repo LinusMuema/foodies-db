@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const userModel = require('../models/user');
 const utils = require('../utils/utils');
 const model = require('../models/intolerance');
 
@@ -12,10 +12,10 @@ exports.getAllIntolerances = (req, res) => {
 }
 
 exports.updateIntolerances = (req, res) => {
-    User.findById(req._id)
+    userModel.User.findById(req._id)
         .then(user => {
             if (!user) return utils.handleNoUserError(res)
-            User.findByIdAndUpdate(req._id, {intolerances: req.body.intolerances})
+            userModel.User.findByIdAndUpdate(req._id, {intolerances: req.body.intolerances})
                 .then(response => {res.status(200).json({message: 'success', updated: true})})
                 .catch(error => {utils.handleServerError(res, error)})
         })
