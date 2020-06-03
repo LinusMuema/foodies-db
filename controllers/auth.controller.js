@@ -13,7 +13,7 @@ exports.login = (req, res) => {
             if ((!user)){
                 utils.hashPassword(req.body.password)
                     .then(pass => {
-                        userModel.User({email: req.body.email,  password: pass}).save()
+                        userModel.User({email: req.body.email,  password: pass, update:["0,0"]}).save()
                             .then(user => {
                                 const email = user.email;
                                 const html = pug.renderFile("views/welcome.pug", {email});

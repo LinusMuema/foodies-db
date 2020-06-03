@@ -16,14 +16,16 @@ exports.verify = (req, res, next) => {
     })
 }
 
-exports.checkUpdate = (req, res, next) => {
+exports.checkRecipeUpdate = (req, res, next) => {
     userModel.User.findById(req._id)
         .then(user => {
-            console.log(user.update)
-            if (user.update === new Date().getDate()){
+            let date = user.update[0].split(",")[0]
+            let calls = user.update[0].split(",")[1]
+            if (parseInt(date) === new Date().getDate() && parseInt(calls) >= 1 )
                 return res.status(403).json({message: "error", reason: "daily limit reached"})
-            }
-            next()
+            user.update[0] = `${new Date().getDate()},${parseInt(calls) + 1}`
+            user.markModified('update')
+            user.save().then(result => {next()}).catch(error => {utils.handleServerError(res, error)})
         })
         .catch(error => {utils.handleServerError(res, error)})
 }
