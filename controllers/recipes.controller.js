@@ -34,7 +34,8 @@ exports.getRecipeById = (req, res) => {
                 })
                 processes.push(new recipeModels.Process({name: process.name, steps: steps}))
             })
-            res.status(200).json({message: 'success',ingredients, equipment, processes})
+            let instruction_id = processes[0]._id
+            res.status(200).json({message: 'success',instruction_id,ingredients, equipment, processes})
         })
         .catch(error => {utils.handleServerError(res, error)})
 }
