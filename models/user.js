@@ -4,8 +4,9 @@ exports.User = mongoose.model("User",
     new mongoose.Schema({
         email: String,
         password: String,
+        favorites: [],
         intolerances: [],
-        update: [oooo],
+        update: [],
         confirmed:{
             type: Boolean,
             default: false

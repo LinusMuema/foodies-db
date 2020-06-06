@@ -5,6 +5,8 @@ const controller = require('../controllers/recipes.controller')
 
 router.get('/random', [middleware.verify, middleware.checkRecipeUpdate], controller.getRandomRecipes)
 
-router.get('/:id/instructions', middleware.verify, controller.getRecipeById)
+router.get('/:id/instructions', [middleware.verify, middleware.checkIfFavorite], controller.getRecipeById)
+
+router.post('/:id/favorites', middleware.verify, controller.addFavorite)
 
 module.exports = router

@@ -19,6 +19,7 @@ exports.getRandomRecipes = (req, res) => {
 }
 
 exports.getRecipeById = (req, res) => {
+    if (req.isFavorite) return res.status(200).json(req.favorite)
     let ingredients = [];
     let equipment = [];
     let processes = [];
@@ -34,7 +35,13 @@ exports.getRecipeById = (req, res) => {
                 })
                 processes.push(new recipeModels.Process({name: process.name, steps: steps}))
             })
-            res.status(200).json({message: 'success', instruction_id: req.params.id, ingredients, equipment, processes})
+            res.status(200).json({message: 'success', isFavorite: false, instruction_id: req.params.id, ingredients, equipment, processes})
         })
+        .catch(error => {utils.handleServerError(res, error)})
+}
+
+exports.addFavorite = (req, res) => {clea
+    userModel.User.findByIdAndUpdate(req._id, {$push: {favorites: req.body.favorite}})
+        .then(result => {res.status(200).json({message: 'success', updated: true})})
         .catch(error => {utils.handleServerError(res, error)})
 }
