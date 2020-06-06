@@ -40,7 +40,7 @@ exports.getRecipeById = (req, res) => {
         .catch(error => {utils.handleServerError(res, error)})
 }
 
-exports.addFavorite = (req, res) => {clea
+exports.addFavorite = (req, res) => {
     userModel.User.findByIdAndUpdate(req._id, {$push: {favorites: req.body.favorite}})
         .then(result => {res.status(200).json({message: 'success', updated: true})})
         .catch(error => {utils.handleServerError(res, error)})
