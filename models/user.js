@@ -5,7 +5,7 @@ exports.User = mongoose.model("User",
         email: String,
         password: String,
         intolerances: [],
-        update: [],
+        update: [oooo],
         confirmed:{
             type: Boolean,
             default: false
