@@ -12,7 +12,7 @@ exports.getRandomRecipes = (intolerances) => {
 exports.getRecipeInstructions = (id) => {
     let ingredients = [];
     let equipment = [];
-    let processes = [];
+    let sections = [];
     return new Promise((resolve, reject) => {
         axios.get(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.SPOONACULAR_API_KEY}`)
             .then(response => {
@@ -24,9 +24,9 @@ exports.getRecipeInstructions = (id) => {
                         ingredients = ingredients.concat(item.ingredients)
                         equipment = equipment.concat(item.equipment)
                     })
-                    processes.push(new recipeModel.Process({name: process.name, steps: steps}))
+                    sections.push(new recipeModel.Section({name: process.name, steps: steps}))
                 })
-                resolve({ingredients, equipment, processes})
+                resolve({ingredients, equipment, sections})
             })
             .catch(error => {reject(error)})
     })

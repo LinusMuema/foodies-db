@@ -7,7 +7,7 @@ exports.Step = mongoose.model("Step",
     })
 );
 
-exports.Process = mongoose.model("Process",
+exports.Section = mongoose.model("Section",
     new mongoose.Schema({
         name: String,
         steps: []

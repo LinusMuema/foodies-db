@@ -10,10 +10,11 @@ exports.getRandomRecipes = (req, res) => {
             api.getRandomRecipes(user.intolerances.map(item => item.name).join(','))
                 .then(response => {
                     response.forEach((info, index, array) => {
-                        api.getRecipeInstructions(info.id)
+                        let id = info.id
+                        api.getRecipeInstructions(id)
                             .then(instructions => {
                                 count++
-                                recipes.push({info, instructions})
+                                recipes.push({id,info, instructions})
                                 if(count === array.length){
                                     res.status(200).json({message: 'success', recipes})
                                 }
