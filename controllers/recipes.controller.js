@@ -1,47 +1,49 @@
-const recipeModels = require('../models/recipe')
 const userModel = require('../models/user')
-const axios = require('axios')
 const utils = require('../utils/utils')
+const api = require('../utils/api')
 
 exports.getRandomRecipes = (req, res) => {
-    let intolerances= ''
+    let count = 0;
+    let recipes = [];
     userModel.User.findById(req._id)
         .then(user => {
-            if (!user) return utils.handleNoUserError(res)
-            user.intolerances.forEach((intolerance) => {
-                intolerances += intolerance.name
-            })
-            axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=5&query=any&intolerances=${intolerances},&instructionsRequired=true&sort=random&apiKey=${process.env.SPOONACULAR_API_KEY}`)
-                .then(response => {res.status(200).json({message: 'success', recipes: response.data.results})})
+            api.getRandomRecipes(user.intolerances.map(item => item.name).join(','))
+                .then(response => {
+                    response.forEach((info, index, array) => {
+                        api.getRecipeInstructions(info.id)
+                            .then(instructions => {
+                                count++
+                                recipes.push({info, instructions})
+                                if(count === array.length){
+                                    res.status(200).json({message: 'success', recipes})
+                                }
+                            })
+                            .catch(error => {utils.handleServerError(res, error)})
+                    })
+                })
                 .catch(error => {utils.handleServerError(res, error)})
         })
         .catch(error => {utils.handleServerError(res, error)})
 }
 
-exports.getRecipeById = (req, res) => {
-    if (req.isFavorite) return res.status(200).json(req.favorite)
-    let ingredients = [];
-    let equipment = [];
-    let processes = [];
-    axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/analyzedInstructions?apiKey=${process.env.SPOONACULAR_API_KEY}`)
-        .then(response => {
-            response.data.forEach((process) => {
-                let steps  = []
-                process.steps.forEach((item) => {
-                    let step = new recipeModels.Step({number: item.number, instruction: item.step})
-                    steps.push(step)
-                    ingredients = ingredients.concat(item.ingredients)
-                    equipment = equipment.concat(item.equipment)
-                })
-                processes.push(new recipeModels.Process({name: process.name, steps: steps}))
-            })
-            res.status(200).json({message: 'success', isFavorite: false, instruction_id: req.params.id, ingredients, equipment, processes})
+exports.getFavorites = (req, res) => {
+    userModel.User.findById(req._id)
+        .then(user => {
+            let favorites = user.favorites
+            res.status(200).json({message: 'success', favorites})
         })
         .catch(error => {utils.handleServerError(res, error)})
 }
 
-exports.addFavorite = (req, res) => {
-    userModel.User.findByIdAndUpdate(req._id, {$push: {favorites: req.body.favorite}})
-        .then(result => {res.status(200).json({message: 'success', updated: true})})
+exports.addFavorites = (req, res) => {
+    userModel.User.findById(req._id)
+        .then(user => {
+            if (user.favorites.length >= 10) return res.status(403).json({message: 'error', reason: 'maximum favorites reached'})
+            user.favorites.push(req.body.recipe)
+            user.markModified('favorites')
+            user.save()
+                .then(result => {res.status(200).json({message: 'success', updated: true})})
+                .catch(error => {utils.handleServerError(res, error)})
+        })
         .catch(error => {utils.handleServerError(res, error)})
 }

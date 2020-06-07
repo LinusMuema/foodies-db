@@ -13,3 +13,10 @@ exports.Process = mongoose.model("Process",
         steps: []
     })
 );
+
+exports.Recipe = mongoose.model("Recipe",
+    new mongoose.Schema({
+        info: Object,
+        instructions:Object
+    })
+)

@@ -32,18 +32,4 @@ exports.checkRecipeUpdate = (req, res, next) => {
 }
 
 exports.checkIfFavorite = (req, res, next) => {
-    userModel.User.findById(req._id)
-        .then(user => {
-            let exists = false
-            user.favorites.forEach(item => {
-                if (item.instruction_id === req.params.id){
-                    console.log("it is a favorite")
-                    exists = true
-                    req.favorite = item
-                }
-            })
-            req.isFavorite = exists
-            next()
-        })
-        .catch(error => {utils.handleServerError(res, error)})
 }
