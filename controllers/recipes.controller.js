@@ -39,8 +39,8 @@ exports.getFavorites = (req, res) => {
 exports.addFavorites = (req, res) => {
     userModel.User.findById(req._id)
         .then(user => {
-            if (user.favorites.length >= 10) return res.status(403).json({message: 'error', reason: 'maximum favorites reached'})
-            user.favorites.push(req.body.recipe)
+            if (user.favorites.recipes.length >= 10) return res.status(403).json({message: 'error', reason: 'maximum favorites reached'})
+            user.favorites = req.body.backup
             user.markModified('favorites')
             user.save()
                 .then(result => {res.status(200).json({message: 'success', updated: true})})
