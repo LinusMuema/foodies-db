@@ -29,16 +29,19 @@ exports.generateAccessToken = (user) => {
     return jwt.sign(JSON.stringify(payload), process.env.TOKEN_SECRET);
 }
 
+exports.updateCalls = (user) => {
+    let calls = user.update[0].split(",")[1]
+    user.update[0] = `${new Date().getDate()},${parseInt(calls) + 1}`
+    user.markModified('update')
+    return user.save()
+}
+
 exports.handleServerError = (res, error) => {
     return res.status(500).json({message: 'error', reason: 'Something went wrong! Try again later.', error})
 }
 
 exports.handleNoUserError = (res) => {
     return res.status(404).json({message: 'error', reason: 'no user found'})
-}
-
-exports.handleServerError = (res) => {
-    return res.status(500).json({message: 'error', reason: 'Something went wrong! Try again later.'})
 }
 
 exports.loadError = (res, message) => {

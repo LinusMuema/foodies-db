@@ -24,12 +24,8 @@ exports.checkRecipeUpdate = (req, res, next) => {
             let calls = user.update[0].split(",")[1]
             if (parseInt(date) === new Date().getDate() && parseInt(calls) >= 1 )
                 return res.status(403).json({message: "error", reason: "daily limit reached"})
-            user.update[0] = `${new Date().getDate()},${parseInt(calls) + 1}`
-            user.markModified('update')
-            user.save().then(result => {next()}).catch(error => {utils.handleServerError(res, error)})
+            else
+                next()
         })
         .catch(error => {utils.handleServerError(res, error)})
-}
-
-exports.checkIfFavorite = (req, res, next) => {
 }

@@ -3,8 +3,6 @@ const utils = require('../utils/utils')
 const api = require('../utils/api')
 
 exports.getRandomRecipes = (req, res) => {
-    let count = 0;
-    let recipes = [];
     userModel.User.findById(req._id)
         .then(user => {
             api.getJoke()
@@ -12,13 +10,17 @@ exports.getRandomRecipes = (req, res) => {
                     api.getTrivia()
                         .then(trivia => {
                             api.getRandomRecipes(user.intolerances.map(item => item.name).join(','))
-                                .then(response => {response.forEach((info, index, array) => {
+                                .then(response => {
+                                    let count = 0;
+                                    let recipes = [];
+                                    response.forEach((info, index, array) => {
                                     let id = info.id
                                     api.getRecipeInstructions(id)
                                         .then(instructions => {
                                             count++
                                             recipes.push({id,info, instructions})
                                             if(count === array.length){
+                                                utils.updateCalls(user)
                                                 res.status(200).json({message: 'success', recipes, joke, trivia})
                                             }
                                         })
