@@ -31,3 +31,19 @@ exports.getRecipeInstructions = (id) => {
             .catch(error => {reject(error)})
     })
 }
+
+exports.getJoke = () => {
+    return new Promise((resolve, reject) => {
+        axios.get(`https://api.spoonacular.com/food/jokes/random?apiKey=${process.env.SPOONACULAR_API_KEY}`)
+            .then(response => {resolve(response.data.text)})
+            .catch(error => {reject(error)})
+    })
+}
+
+exports.getTrivia = () => {
+    return new Promise((resolve, reject) => {
+        axios.get(`https://api.spoonacular.com/food/trivia/random?apiKey=${process.env.SPOONACULAR_API_KEY}`)
+            .then(response => {resolve(response.data.text)})
+            .catch(error => {reject(error)})
+    })
+}

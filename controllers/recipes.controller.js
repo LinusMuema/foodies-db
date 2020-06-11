@@ -7,25 +7,34 @@ exports.getRandomRecipes = (req, res) => {
     let recipes = [];
     userModel.User.findById(req._id)
         .then(user => {
-            api.getRandomRecipes(user.intolerances.map(item => item.name).join(','))
-                .then(response => {
-                    response.forEach((info, index, array) => {
-                        let id = info.id
-                        api.getRecipeInstructions(id)
-                            .then(instructions => {
-                                count++
-                                recipes.push({id,info, instructions})
-                                if(count === array.length){
-                                    res.status(200).json({message: 'success', recipes})
-                                }
-                            })
-                            .catch(error => {utils.handleServerError(res, error)})
-                    })
+            api.getJoke()
+                .then(joke => {
+                    api.getTrivia()
+                        .then(trivia => {
+                            api.getRandomRecipes(user.intolerances.map(item => item.name).join(','))
+                                .then(response => {response.forEach((info, index, array) => {
+                                    let id = info.id
+                                    api.getRecipeInstructions(id)
+                                        .then(instructions => {
+                                            count++
+                                            recipes.push({id,info, instructions})
+                                            if(count === array.length){
+                                                res.status(200).json({message: 'success', recipes, joke, trivia})
+                                            }
+                                        })
+                                        .catch(error => {utils.handleServerError(res, error)})
+                                })
+                                })
+                                .catch(error => {utils.handleServerError(res, error)})
+                        })
+                        .catch(error => {utils.handleServerError(res, error)})
                 })
                 .catch(error => {utils.handleServerError(res, error)})
         })
         .catch(error => {utils.handleServerError(res, error)})
 }
+
+
 
 exports.getFavorites = (req, res) => {
     userModel.User.findById(req._id)
