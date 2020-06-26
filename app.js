@@ -5,6 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const axios = require('axios')
 const authRouter = require('./routes/auth');
 const intoleranceRouter = require('./routes/intolerances')
 const recipesRoute = require('./routes/recipes')

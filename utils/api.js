@@ -1,9 +1,14 @@
 const axios = require('axios')
 const recipeModel = require('../models/recipe')
 
+const api = axios.create({
+    baseURL: 'https://api.spoonacular.com/',
+    timeout: 10000
+})
+
 exports.getRandomRecipes = (intolerances) => {
     return new Promise((resolve, reject) => {
-        axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=5&query=any&intolerances=${intolerances},&instructionsRequired=true&sort=random&apiKey=${process.env.SPOONACULAR_API_KEY}`)
+        api.get(`recipes/complexSearch?number=5&query=any&intolerances=${intolerances},&instructionsRequired=true&sort=random&apiKey=${process.env.SPOONACULAR_API_KEY}`)
             .then(response => {resolve(response.data.results)})
             .catch(error => {reject(error)})
     })
@@ -14,7 +19,7 @@ exports.getRecipeInstructions = (id) => {
     let equipment = [];
     let sections = [];
     return new Promise((resolve, reject) => {
-        axios.get(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.SPOONACULAR_API_KEY}`)
+        api.get(`recipes/${id}/analyzedInstructions?apiKey=${process.env.SPOONACULAR_API_KEY}`)
             .then(response => {
                 response.data.forEach((process) => {
                     let steps  = []
@@ -34,7 +39,7 @@ exports.getRecipeInstructions = (id) => {
 
 exports.getJoke = () => {
     return new Promise((resolve, reject) => {
-        axios.get(`https://api.spoonacular.com/food/jokes/random?apiKey=${process.env.SPOONACULAR_API_KEY}`)
+        api.get(`food/jokes/random?apiKey=${process.env.SPOONACULAR_API_KEY}`)
             .then(response => {resolve(response.data.text)})
             .catch(error => {reject(error)})
     })
@@ -42,8 +47,24 @@ exports.getJoke = () => {
 
 exports.getTrivia = () => {
     return new Promise((resolve, reject) => {
-        axios.get(`https://api.spoonacular.com/food/trivia/random?apiKey=${process.env.SPOONACULAR_API_KEY}`)
+        api.get(`food/trivia/random?apiKey=${process.env.SPOONACULAR_API_KEY}`)
             .then(response => {resolve(response.data.text)})
+            .catch(error => {reject(error)})
+    })
+}
+
+exports.searchRecipe = (name, intolerances) => {
+    return new Promise((resolve, reject) => {
+        api.get(`recipes/search?number=5&query=${name}&intolerances=${intolerances},&instructionsRequired=true&apiKey=${process.env.SPOONACULAR_API_KEY}`)
+            .then(response => {resolve(response.data.results)})
+            .catch(error => {reject(error)})
+    })
+}
+
+exports.searchRecipeByIngredients = (ingredients) => {
+    return new Promise((resolve, reject) => {
+        api.get(`recipes/findByIngredients?number=5&ingredients=${ingredients},&ranking=1&ignorePantry=true&instructionsRequired=true&apiKey=${process.env.SPOONACULAR_API_KEY}`)
+            .then(response => {resolve(response.data)})
             .catch(error => {reject(error)})
     })
 }

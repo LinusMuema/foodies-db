@@ -36,8 +36,6 @@ exports.getRandomRecipes = (req, res) => {
         .catch(error => {utils.handleServerError(res, error)})
 }
 
-
-
 exports.getFavorites = (req, res) => {
     userModel.User.findById(req._id)
         .then(user => {
@@ -57,5 +55,21 @@ exports.addFavorites = (req, res) => {
                 .then(result => {res.status(200).json({message: 'success', updated: true})})
                 .catch(error => {utils.handleServerError(res, error)})
         })
+        .catch(error => {utils.handleServerError(res, error)})
+}
+
+exports.getRecipeByName = (req, res) => {
+    userModel.User.findById(req._id)
+        .then(user => {
+            api.searchRecipe(req.params.query, user.intolerances.map(item => item.name).join(','))
+                .then(recipes => {res.status(200).json({message: 'success', recipes})})
+                .catch(error => {utils.handleServerError(res, error)})
+        })
+        .catch(error => {utils.handleServerError(res, error)})
+}
+
+exports.getRecipesByIngredients = (req, res) => {
+    api.searchRecipeByIngredients(req.params.ingredients)
+        .then(recipes => {res.status(200).json({message: 'success', recipes})})
         .catch(error => {utils.handleServerError(res, error)})
 }

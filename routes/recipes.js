@@ -7,6 +7,10 @@ router.get('/random', [middleware.verify, middleware.checkRecipeUpdate], control
 
 router.get('/favorites', [middleware.verify], controller.getFavorites)
 
+router.get('/search/:query', [middleware.verify], controller.getRecipeByName)
+
+router.get('/search/ingredients/:ingredients', [middleware.verify], controller.getRecipesByIngredients)
+
 router.post('/favorites', [middleware.verify], controller.addFavorites)
 
 module.exports = router
