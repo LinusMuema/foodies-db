@@ -53,6 +53,14 @@ exports.getTrivia = () => {
     })
 }
 
+exports.searchRecipeVideos = (name) => {
+    return new Promise((resolve, reject) => {
+        api.get(`food/videos/search?query=${name}&number=5&apiKey=${process.env.SPOONACULAR_API_KEY}`)
+            .then(response => {resolve(response.data.videos)})
+            .catch(error => {reject(error)})
+    })
+}
+
 exports.searchRecipe = (name, intolerances) => {
     return new Promise((resolve, reject) => {
         api.get(`recipes/search?number=5&query=${name}&intolerances=${intolerances},&instructionsRequired=true&apiKey=${process.env.SPOONACULAR_API_KEY}`)

@@ -61,8 +61,12 @@ exports.addFavorites = (req, res) => {
 exports.getRecipeByName = (req, res) => {
     userModel.User.findById(req._id)
         .then(user => {
-            api.searchRecipe(req.params.query, user.intolerances.map(item => item.name).join(','))
-                .then(recipes => {res.status(200).json({message: 'success', recipes})})
+            api.searchRecipeVideos(req.params.query)
+                .then(videos => {
+                    api.searchRecipe(req.params.query, user.intolerances.map(item => item.name).join(','))
+                        .then(recipes => {res.status(200).json({message: 'success', recipes, videos})})
+                        .catch(error => {utils.handleServerError(res, error)})
+                })
                 .catch(error => {utils.handleServerError(res, error)})
         })
         .catch(error => {utils.handleServerError(res, error)})
