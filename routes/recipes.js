@@ -3,6 +3,8 @@ const router = express.Router()
 const middleware = require('../middleware')
 const controller = require('../controllers/recipes.controller')
 
+router.get('/one/:id', [middleware.verify], controller.getRecipeById)
+
 router.get('/random', [middleware.verify, middleware.checkRecipeUpdate], controller.getRandomRecipes)
 
 router.get('/favorites', [middleware.verify], controller.getFavorites)

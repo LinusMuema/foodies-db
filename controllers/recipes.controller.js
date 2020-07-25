@@ -77,3 +77,9 @@ exports.getRecipesByIngredients = (req, res) => {
         .then(recipes => {res.status(200).json({message: 'success', recipes})})
         .catch(error => {utils.handleServerError(res, error)})
 }
+
+exports.getRecipeById = (req, res) => {
+    api.getRecipeInstructions(req.params.id)
+        .then(instructions => {res.status(200).json({message: 'success', instructions})})
+        .catch(error => {utils.handleServerError(res, error)})
+}
