@@ -64,7 +64,10 @@ exports.getRecipeByName = (req, res) => {
             api.searchRecipeVideos(req.params.query)
                 .then(videos => {
                     api.searchRecipe(req.params.query, user.intolerances.map(item => item.name).join(','))
-                        .then(recipes => {res.status(200).json({message: 'success', recipes, videos})})
+                        .then(recipes => {
+                            utils.updateSearchCalls(user)
+                            res.status(200).json({message: 'success', recipes, videos})
+                        })
                         .catch(error => {utils.handleServerError(res, error)})
                 })
                 .catch(error => {utils.handleServerError(res, error)})
@@ -73,13 +76,27 @@ exports.getRecipeByName = (req, res) => {
 }
 
 exports.getRecipesByIngredients = (req, res) => {
-    api.searchRecipeByIngredients(req.params.ingredients)
-        .then(recipes => {res.status(200).json({message: 'success', recipes})})
+    userModel.User.findById(req._id)
+        .then(user => {
+            api.searchRecipeByIngredients(req.params.ingredients)
+                .then(recipes => {
+                    utils.updateSearchCalls(user)
+                    res.status(200).json({message: 'success', recipes})
+                })
+                .catch(error => {utils.handleServerError(res, error)})
+        })
         .catch(error => {utils.handleServerError(res, error)})
 }
 
 exports.getRecipeById = (req, res) => {
-    api.getRecipeInstructions(req.params.id)
-        .then(instructions => {res.status(200).json({message: 'success', instructions})})
+    userModel.User.findById(req._id)
+        .then(user => {
+            api.getRecipeInstructions(req.params.id)
+                .then(instructions => {
+                    utils.updateSearchCalls(user)
+                    res.status(200).json({message: 'success', instructions})
+                })
+                .catch(error => {utils.handleServerError(res, error)})
+        })
         .catch(error => {utils.handleServerError(res, error)})
 }

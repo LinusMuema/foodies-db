@@ -29,3 +29,16 @@ exports.checkRecipeUpdate = (req, res, next) => {
         })
         .catch(error => {utils.handleServerError(res, error)})
 }
+
+exports.checkSearchesUpdate = (req, res, next) => {
+    userModel.User.findById(req._id)
+        .then(user => {
+            let date = user.update[1].split(",")[0]
+            let calls = user.update[1].split(",")[1]
+            if (parseInt(date) === new Date().getDate() && parseInt(calls) >= 10 )
+                return res.status(403).json({message: "error", reason: "daily search limit reached"})
+            else
+                next()
+        })
+        .catch(error => {utils.handleServerError(res, error)})
+}

@@ -36,6 +36,13 @@ exports.updateCalls = (user) => {
     return user.save()
 }
 
+exports.updateSearchCalls = (user) => {
+    let calls = user.update[1].split(",")[1]
+    user.update[1] = `${new Date().getDate()},${parseInt(calls) + 1}`
+    user.markModified('update')
+    return user.save()
+}
+
 exports.handleServerError = (res, error) => {
     return res.status(500).json({message: 'error', reason: 'Something went wrong! Try again later.', error})
 }
