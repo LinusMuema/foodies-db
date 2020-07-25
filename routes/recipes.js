@@ -11,7 +11,7 @@ router.get('/favorites', [middleware.verify], controller.getFavorites)
 
 router.get('/search/:query', [middleware.verify, middleware.checkSearchesUpdate], controller.getRecipeByName)
 
-router.get('/search/ingredients/:ingredients', [middleware.verify, middleware.checkSearchesUpdateg], controller.getRecipesByIngredients)
+router.get('/search/ingredients/:ingredients', [middleware.verify, middleware.checkSearchesUpdate], controller.getRecipesByIngredients)
 
 router.post('/favorites', [middleware.verify], controller.addFavorites)
 
