@@ -1,23 +1,18 @@
 const userModel = require('../models/user');
-const utils = require('../utils/utils');
 const model = require('../models/intolerance');
+const responseHandler = require('../utils/responseHandler')
 
 exports.getAllIntolerances = (req, res) => {
     model.Intolerance.find()
         .then(intolerances => {
-            if (!intolerances) return utils.handleServerError(res, null)
+            if (!intolerances) return responseHandler.handleServerError(res, null)
             res.status(200).json({message: 'success', intolerances})
         })
-        .catch(error => {utils.handleServerError(res, error)})
+        .catch(_ => {responseHandler.handleServerError(res, "error getting intolerances")})
 }
 
 exports.updateIntolerances = (req, res) => {
-    userModel.User.findById(req._id)
-        .then(user => {
-            if (!user) return utils.handleNoUserError(res)
-            userModel.User.findByIdAndUpdate(req._id, {intolerances: req.body.intolerances})
-                .then(response => {res.status(200).json({message: 'success', updated: true})})
-                .catch(error => {utils.handleServerError(res, error)})
-        })
-        .catch(error => {utils.handleServerError(res, error)})
+     userModel.User.findByIdAndUpdate(req._id, {intolerances: req.body.intolerances})
+        .then(_ => {res.status(200).json({message: 'success', updated: true})})
+        .catch(_ => {responseHandler.handleServerError(res, "error updating intolerances")})
 }

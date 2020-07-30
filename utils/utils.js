@@ -43,14 +43,6 @@ exports.updateSearchCalls = (user) => {
     return user.save()
 }
 
-exports.handleServerError = (res, error) => {
-    return res.status(500).json({message: 'error', reason: 'Something went wrong! Try again later.', error})
-}
-
-exports.handleNoUserError = (res) => {
-    return res.status(404).json({message: 'error', reason: 'no user found'})
-}
-
 exports.loadError = (res, message) => {
     const type = "error";
     const image = '/images/error.png';

@@ -1,6 +1,7 @@
 const userModel = require('../models/user')
 const utils = require('../utils/utils')
 const api = require('../utils/api')
+const responseHandler = require('../utils/responseHandler')
 
 exports.getRandomRecipes = (req, res) => {
     userModel.User.findById(req._id)
@@ -24,16 +25,16 @@ exports.getRandomRecipes = (req, res) => {
                                                 res.status(200).json({message: 'success', recipes, joke, trivia})
                                             }
                                         })
-                                        .catch(error => {utils.handleServerError(res, error)})
+                                        .catch(error => {responseHandler.handleServerError(res, error)})
                                 })
                                 })
-                                .catch(error => {utils.handleServerError(res, error)})
+                                .catch(error => {responseHandler.handleServerError(res, error)})
                         })
-                        .catch(error => {utils.handleServerError(res, error)})
+                        .catch(error => {responseHandler.handleServerError(res, error)})
                 })
-                .catch(error => {utils.handleServerError(res, error)})
+                .catch(error => {responseHandler.handleServerError(res, error)})
         })
-        .catch(error => {utils.handleServerError(res, error)})
+        .catch(error => {responseHandler.handleServerError(res, error)})
 }
 
 exports.getFavorites = (req, res) => {
@@ -42,21 +43,9 @@ exports.getFavorites = (req, res) => {
             let favorites = user.favorites
             res.status(200).json({message: 'success', favorites})
         })
-        .catch(error => {utils.handleServerError(res, error)})
+        .catch(error => {responseHandler.handleServerError(res, error)})
 }
 
-exports.addFavorites = (req, res) => {
-    userModel.User.findById(req._id)
-        .then(user => {
-            if (user.favorites.recipes.length >= 10) return res.status(403).json({message: 'error', reason: 'maximum favorites reached'})
-            user.favorites = req.body.backup
-            user.markModified('favorites')
-            user.save()
-                .then(result => {res.status(200).json({message: 'success', updated: true})})
-                .catch(error => {utils.handleServerError(res, error)})
-        })
-        .catch(error => {utils.handleServerError(res, error)})
-}
 
 exports.getRecipeByName = (req, res) => {
     userModel.User.findById(req._id)
@@ -68,11 +57,11 @@ exports.getRecipeByName = (req, res) => {
                             utils.updateSearchCalls(user)
                             res.status(200).json({message: 'success', recipes, videos})
                         })
-                        .catch(error => {utils.handleServerError(res, error)})
+                        .catch(error => {responseHandler.handleServerError(res, error)})
                 })
-                .catch(error => {utils.handleServerError(res, error)})
+                .catch(error => {responseHandler.handleServerError(res, error)})
         })
-        .catch(error => {utils.handleServerError(res, error)})
+        .catch(error => {responseHandler.handleServerError(res, error)})
 }
 
 exports.getRecipesByIngredients = (req, res) => {
@@ -83,9 +72,9 @@ exports.getRecipesByIngredients = (req, res) => {
                     utils.updateSearchCalls(user)
                     res.status(200).json({message: 'success', recipes})
                 })
-                .catch(error => {utils.handleServerError(res, error)})
+                .catch(error => {responseHandler.handleServerError(res, error)})
         })
-        .catch(error => {utils.handleServerError(res, error)})
+        .catch(error => {responseHandler.handleServerError(res, error)})
 }
 
 exports.getRecipeById = (req, res) => {
@@ -96,7 +85,7 @@ exports.getRecipeById = (req, res) => {
                     utils.updateSearchCalls(user)
                     res.status(200).json({message: 'success', instructions})
                 })
-                .catch(error => {utils.handleServerError(res, error)})
+                .catch(error => {responseHandler.handleServerError(res, error)})
         })
-        .catch(error => {utils.handleServerError(res, error)})
+        .catch(error => {responseHandler.handleServerError(res, error)})
 }
