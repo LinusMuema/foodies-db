@@ -13,6 +13,4 @@ router.get('/search/:query', [middleware.verify, middleware.checkSearchesUpdate]
 
 router.get('/search/ingredients/:ingredients', [middleware.verify, middleware.checkSearchesUpdate], controller.getRecipesByIngredients)
 
-router.post('/favorites', [middleware.verify], controller.addFavorites)
-
 module.exports = router
