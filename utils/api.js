@@ -76,9 +76,3 @@ exports.searchRecipeByIngredients = (ingredients) => {
             .catch(error => {reject(error)})
     })
 }
-
-exports.getRecipeById = (id) => {
-    return new Promise((resolve, reject) => {
-
-    })
-}

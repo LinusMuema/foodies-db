@@ -54,8 +54,8 @@ exports.getRecipeByName = (req, res) => {
                 .then(videos => {
                     api.searchRecipe(req.params.query, user.intolerances.map(item => item.name).join(','))
                         .then(recipes => {
-                            utils.updateSearchCalls(user)
                             res.status(200).json({message: 'success', recipes, videos})
+                            utils.updateSearchCalls(user)
                         })
                         .catch(error => {responseHandler.handleServerError(res, error)})
                 })
