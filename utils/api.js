@@ -6,9 +6,9 @@ const api = axios.create({
     timeout: 10000
 })
 
-exports.getRandomRecipes = (intolerances) => {
+exports.getRandomRecipes = (intolerances, number) => {
     return new Promise((resolve, reject) => {
-        api.get(`recipes/complexSearch?number=5&query=any&intolerances=${intolerances},&instructionsRequired=true&sort=random&apiKey=${process.env.SPOONACULAR_API_KEY}`)
+        api.get(`recipes/complexSearch?number=${number}&query=any&intolerances=${intolerances},&instructionsRequired=true&sort=random&apiKey=${process.env.SPOONACULAR_API_KEY}`)
             .then(response => {resolve(response.data.results)})
             .catch(error => {reject(error)})
     })

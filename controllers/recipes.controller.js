@@ -10,7 +10,7 @@ exports.getRandomRecipes = (req, res) => {
                 .then(joke => {
                     api.getTrivia()
                         .then(trivia => {
-                            api.getRandomRecipes(user.intolerances.map(item => item.name).join(','))
+                            api.getRandomRecipes(user.intolerances.map(item => item.name).join(','), req.calls)
                                 .then(response => {
                                     let count = 0;
                                     let recipes = [];

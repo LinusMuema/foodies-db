@@ -10,6 +10,10 @@ exports.User = mongoose.model("User",
         confirmed:{
             type: Boolean,
             default: false
+        },
+        premium: {
+            type: Boolean,
+            default: false
         }
     })
 );
