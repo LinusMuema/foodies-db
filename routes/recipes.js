@@ -7,7 +7,9 @@ router.get('/one/:id', [middleware.verify, middleware.checkSearchesUpdate], cont
 
 router.get('/random', [middleware.verify, middleware.checkRecipeUpdate], controller.getRandomRecipes)
 
-router.get('/favorites', [middleware.verify], controller.getFavorites)
+router.get('/favorites', middleware.verify, controller.getFavorites)
+
+router.post('/favorites', middleware.verify, controller.updateFavorites)
 
 router.get('/search/:query', [middleware.verify, middleware.checkSearchesUpdate], controller.getRecipeByName)
 

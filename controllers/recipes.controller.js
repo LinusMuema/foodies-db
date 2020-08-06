@@ -46,6 +46,13 @@ exports.getFavorites = (req, res) => {
         .catch(error => {responseHandler.handleServerError(res, error)})
 }
 
+exports.updateFavorites = (req, res) => {
+    userModel.User.findOneAndUpdate(req._id, {$set : {favorites : req.body.favorites.recipes}})
+        .then(result => {
+            console.log(result)})
+        .catch(error => {responseHandler.handleServerError(res, error)})
+}
+
 
 exports.getRecipeByName = (req, res) => {
     userModel.User.findById(req._id)
