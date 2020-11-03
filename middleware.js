@@ -7,9 +7,9 @@ exports.verify = (req, res, next) => {
     if (!token) return res.status(403).json({message: 'error', reason: 'please provide an bearer token'})
     jwt.verify(token.split(" ")[1], process.env.TOKEN_SECRET, (err, value) => {
         if (err) return responseHandler.handleServerError(res, 'failed to authenticate token')
-        let user = Object.values(value)[0]
-        req.premium = user.premium
-        req._id = user._id
+        let tokenData = value.split(".")
+        req.premium = tokenData[1]
+        req._id = tokenData[0]
         next()
     })
 }

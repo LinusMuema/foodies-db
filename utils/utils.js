@@ -25,8 +25,9 @@ exports.sendEmail =(recipient, subject, html) => {
 }
 
 exports.generateAccessToken = (user) => {
-    let payload = {user: user, update: Date.now()};
-    return jwt.sign(JSON.stringify(payload), process.env.TOKEN_SECRET);
+    let date = new Date()
+    let payload = `${user._id}.${user.premium}.${date.getMilliseconds()}`;
+    return jwt.sign(payload, process.env.TOKEN_SECRET);
 }
 
 exports.updateCalls = (user) => {
