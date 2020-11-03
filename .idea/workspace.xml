@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/recipes.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/recipes.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/recipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/recipes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +39,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.19.3" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -50,6 +51,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -84,6 +86,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -140,11 +143,13 @@
       <workItem from="1596534290082" duration="72000" />
       <workItem from="1596534502808" duration="2265000" />
       <workItem from="1596733339513" duration="245000" />
+      <workItem from="1598612290787" duration="709000" />
+      <workItem from="1604410628774" duration="173000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -170,26 +175,30 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="693" y="302" width="524" height="501" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1591467473499" />
-    <state width="1897" height="520" key="GridCell.Tab.0.bottom" timestamp="1596536767616">
+    <state width="1897" height="520" key="GridCell.Tab.0.bottom" timestamp="1598612999613">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="520" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1596536767616" />
-    <state width="1897" height="520" key="GridCell.Tab.0.center" timestamp="1596536767615">
+    <state width="1897" height="520" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1598612999613" />
+    <state width="1897" height="520" key="GridCell.Tab.0.center" timestamp="1598612999613">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="520" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1596536767615" />
-    <state width="1897" height="520" key="GridCell.Tab.0.left" timestamp="1596536767611">
+    <state width="1897" height="520" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1598612999613" />
+    <state width="1897" height="520" key="GridCell.Tab.0.left" timestamp="1598612999613">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="520" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1596536767611" />
-    <state width="1897" height="520" key="GridCell.Tab.0.right" timestamp="1596536767616">
+    <state width="1897" height="520" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1598612999613" />
+    <state width="1897" height="520" key="GridCell.Tab.0.right" timestamp="1598612999613">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="520" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1596536767616" />
+    <state width="1897" height="520" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1598612999613" />
     <state x="449" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1590871257263">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="449" y="188" width="1022" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1590871257263" />
+    <state x="729" y="466" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598612672740">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="729" y="466" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1053@0.27.1920.1053" timestamp="1598612672740" />
     <state x="624" y="254" key="run.anything.popup" timestamp="1591077290452">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
