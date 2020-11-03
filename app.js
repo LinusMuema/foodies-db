@@ -30,8 +30,8 @@ app.use('/api/intolerances', intoleranceRouter);
 app.use('/api/recipes', recipesRoute)
 
 //Database config
-mongoose.connect(process.env.MONGODB_URL || uri, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(r => console.log('DB opened successfully'));
+mongoose.connect(process.env.MONGODB_URL || uri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true})
+    .then(() => console.log('DB opened successfully'));
 
 
 app.listen(process.env.PORT || 2400, (req, res) => {
