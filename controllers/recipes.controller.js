@@ -39,10 +39,7 @@ exports.getRandomRecipes = (req, res) => {
 
 exports.getFavorites = (req, res) => {
     userModel.User.findById(req._id)
-        .then(user => {
-            let favorites = user.favorites
-            res.status(200).json({message: 'success', favorites})
-        })
+        .then(user => {res.status(200).json(user.favorites)})
         .catch(error => {responseHandler.handleServerError(res, error)})
 }
 
