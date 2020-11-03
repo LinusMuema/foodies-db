@@ -48,7 +48,7 @@ exports.getFavorites = (req, res) => {
 
 exports.updateFavorites = (req, res) => {
     userModel.User.findOneAndUpdate(req._id, {$set : {favorites : req.body.recipes}})
-        .then(result => {res.status(200).json(result)})
+        .then(result => {res.status(200).json({message: 'success', result})})
         .catch(error => {responseHandler.handleServerError(res, error)})
 }
 
