@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:heroku" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="- added logs">
       <change beforePath="$PROJECT_DIR$/controllers/recipes.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/recipes.controller.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,8 +167,16 @@
       <workItem from="1598612290787" duration="709000" />
       <workItem from="1604410628774" duration="1294000" />
       <workItem from="1604425098606" duration="2893000" />
-      <workItem from="1607104570708" duration="52000" />
+      <workItem from="1607104570708" duration="305000" />
     </task>
+    <task id="LOCAL-00001" summary="- added logs">
+      <created>1607104634242</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607104634242</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +196,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="- added logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added logs" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1897" height="520" key="GridCell.Tab.0.bottom" timestamp="1604427991788">
@@ -184,10 +216,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state width="1897" height="520" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1604427991788" />
-    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1604410832988">
+    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1607104641726">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1604410832988" />
+    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1607104641726" />
     <state x="729" y="466" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604411349976">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
