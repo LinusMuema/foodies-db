@@ -4,6 +4,7 @@ const api = require('../utils/api')
 const responseHandler = require('../utils/responseHandler')
 
 exports.getRandomRecipes = (req, res) => {
+    console.log(req._id)
     userModel.User.findById(req._id)
         .then(user => {
             api.getJoke()
