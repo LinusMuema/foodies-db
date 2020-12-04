@@ -10,6 +10,7 @@ exports.verify = (req, res, next) => {
         let tokenData = value.split(".")
         req.premium = tokenData[1]
         req._id = tokenData[0]
+        console.log(req._id)
         next()
     })
 }
