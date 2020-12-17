@@ -40,12 +40,13 @@ exports.getRandomRecipes = (req, res) => {
 
 exports.getFavorites = (req, res) => {
     userModel.User.findById(req._id)
-        .then(user => {res.status(200).json(user.favorites)})
+        .then(user => {res.status(200).json(user.favorites.recipes)})
         .catch(error => {responseHandler.handleServerError(res, error)})
 }
 
 exports.updateFavorites = (req, res) => {
-    userModel.User.findByIdAndUpdate(req._id, {$set: {favorites: req.body.favorites}}, {new: true})
+    const body = {recipes: req.body.favorites}
+    userModel.User.findByIdAndUpdate(req._id, {$set: {favorites: body}}, {new: true})
         .then(result => {res.status(200).json({message: 'success', result})})
         .catch(error => {responseHandler.handleServerError(res, error)})
 }
