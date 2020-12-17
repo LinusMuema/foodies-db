@@ -4,14 +4,14 @@ const api = require('../utils/api')
 const responseHandler = require('../utils/responseHandler')
 
 exports.getRandomRecipes = (req, res) => {
-    console.log(req._id)
     userModel.User.findById(req._id)
         .then(user => {
             api.getJoke()
                 .then(joke => {
                     api.getTrivia()
                         .then(trivia => {
-                            api.getRandomRecipes(user.intolerances.map(item => item.name).join(','), req.calls)
+                            const calls = req.premium === "true" ? 10 : 5
+                            api.getRandomRecipes(user.intolerances.map(item => item.name).join(','), calls)
                                 .then(response => {
                                     let count = 0;
                                     let recipes = [];

@@ -26,9 +26,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="- added logs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/recipes.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/recipes.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +169,7 @@
       <workItem from="1604410628774" duration="1294000" />
       <workItem from="1604425098606" duration="2893000" />
       <workItem from="1607104570708" duration="2286000" />
-      <workItem from="1608226125248" duration="3022000" />
+      <workItem from="1608226125248" duration="4310000" />
     </task>
     <task id="LOCAL-00001" summary="- added logs">
       <created>1607104634242</created>
@@ -215,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608231475672</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- token issue solved">
+      <created>1608233195723</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608233195723</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,29 +242,30 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="- added logs" />
     <MESSAGE value="- log the token" />
-    <option name="LAST_COMMIT_MESSAGE" value="- log the token" />
+    <MESSAGE value="- token issue solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="- token issue solved" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1897" height="373" key="GridCell.Tab.0.bottom" timestamp="1608233006286">
+    <state width="1897" height="373" key="GridCell.Tab.0.bottom" timestamp="1608233210006">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1608233006286" />
-    <state width="1897" height="373" key="GridCell.Tab.0.center" timestamp="1608233006285">
+    <state width="1897" height="373" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1608233210006" />
+    <state width="1897" height="373" key="GridCell.Tab.0.center" timestamp="1608233210004">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1608233006285" />
-    <state width="1897" height="373" key="GridCell.Tab.0.left" timestamp="1608233006285">
+    <state width="1897" height="373" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1608233210004" />
+    <state width="1897" height="373" key="GridCell.Tab.0.left" timestamp="1608233210003">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1608233006285" />
-    <state width="1897" height="373" key="GridCell.Tab.0.right" timestamp="1608233006286">
+    <state width="1897" height="373" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1608233210003" />
+    <state width="1897" height="373" key="GridCell.Tab.0.right" timestamp="1608233210005">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1608233006286" />
-    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1608231477757">
+    <state width="1897" height="373" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1608233210005" />
+    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1608233197526">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608231477757" />
+    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608233197526" />
     <state x="729" y="466" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604411349976">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
