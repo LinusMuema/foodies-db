@@ -27,6 +27,7 @@
     <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="- added logs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/recipes.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/recipes.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/recipe.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/recipe.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +170,7 @@
       <workItem from="1604410628774" duration="1294000" />
       <workItem from="1604425098606" duration="2893000" />
       <workItem from="1607104570708" duration="2286000" />
-      <workItem from="1608226125248" duration="5254000" />
+      <workItem from="1608226125248" duration="5805000" />
     </task>
     <task id="LOCAL-00001" summary="- added logs">
       <created>1607104634242</created>
@@ -234,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608235293229</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="- added log">
+      <created>1608235439795</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608235439795</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,29 +267,30 @@
     <MESSAGE value="- token issue solved" />
     <MESSAGE value="- change premium recipes" />
     <MESSAGE value="- change favorites signature" />
-    <option name="LAST_COMMIT_MESSAGE" value="- change favorites signature" />
+    <MESSAGE value="- added log" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added log" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1897" height="373" key="GridCell.Tab.0.bottom" timestamp="1608235259730">
+    <state width="1897" height="373" key="GridCell.Tab.0.bottom" timestamp="1608235635764">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1608235259730" />
-    <state width="1897" height="373" key="GridCell.Tab.0.center" timestamp="1608235259730">
+    <state width="1897" height="373" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1608235635764" />
+    <state width="1897" height="373" key="GridCell.Tab.0.center" timestamp="1608235635763">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1608235259730" />
-    <state width="1897" height="373" key="GridCell.Tab.0.left" timestamp="1608235259729">
+    <state width="1897" height="373" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1608235635763" />
+    <state width="1897" height="373" key="GridCell.Tab.0.left" timestamp="1608235635762">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1608235259729" />
-    <state width="1897" height="373" key="GridCell.Tab.0.right" timestamp="1608235259730">
+    <state width="1897" height="373" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1608235635762" />
+    <state width="1897" height="373" key="GridCell.Tab.0.right" timestamp="1608235635763">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1608235259730" />
-    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1608235295244">
+    <state width="1897" height="373" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1608235635763" />
+    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1608235442211">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608235295244" />
+    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608235442211" />
     <state x="729" y="466" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604411349976">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

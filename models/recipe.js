@@ -20,3 +20,10 @@ exports.Recipe = mongoose.model("Recipe",
         instructions:Object
     })
 )
+
+exports.Favorites = mongoose.model("Favorite",
+    new mongoose.Schema({
+        recipes: [],
+        user: String,
+    })
+)

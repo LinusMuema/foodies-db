@@ -1,4 +1,5 @@
 const userModel = require('../models/user')
+const recipeModel = require('../models/recipe')
 const utils = require('../utils/utils')
 const api = require('../utils/api')
 const responseHandler = require('../utils/responseHandler')
@@ -45,9 +46,7 @@ exports.getFavorites = (req, res) => {
 }
 
 exports.updateFavorites = (req, res) => {
-    const body = {recipes: req.body.favorites}
-    console.log(body)
-    userModel.User.findByIdAndUpdate(req._id, {$set: {favorites: body}}, {new: true})
+    recipeModel.Favorites.findOneAndUpdate({user: req._id}, {$set: {recipes: req.body.favorites}}, {upsert: true})
         .then(result => {res.status(200).json({message: 'success', result})})
         .catch(error => {responseHandler.handleServerError(res, error)})
 }
