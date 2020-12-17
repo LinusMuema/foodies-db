@@ -11,6 +11,7 @@ const passwordErrorMessage = 'check your password and try again!';
 exports.login = (req, res) => {
     userModel.User.findOne({email: req.body.email})
         .then(user => {
+            console.log(user)
             if ((!user)){
                 utils.hashPassword(req.body.password)
                     .then(pass => {

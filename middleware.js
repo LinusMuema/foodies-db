@@ -4,14 +4,12 @@ const responseHandler = require('./utils/responseHandler')
 
 exports.verify = (req, res, next) => {
     const token = req.headers.authorization
-    console.log(token)
     if (!token) return res.status(403).json({message: 'error', reason: 'please provide an bearer token'})
     jwt.verify(token.split(" ")[1], process.env.TOKEN_SECRET, (err, value) => {
         if (err) return responseHandler.handleServerError(res, 'failed to authenticate token')
         let tokenData = value.split(".")
         req.premium = tokenData[1]
         req._id = tokenData[0]
-        console.log(req._id)
         next()
     })
 }
