@@ -169,7 +169,7 @@
       <workItem from="1604410628774" duration="1294000" />
       <workItem from="1604425098606" duration="2893000" />
       <workItem from="1607104570708" duration="2286000" />
-      <workItem from="1608226125248" duration="6409000" />
+      <workItem from="1608226125248" duration="6534000" />
     </task>
     <task id="LOCAL-00001" summary="- added logs">
       <created>1607104634242</created>
@@ -262,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608236468295</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="- added favorites doc">
+      <created>1608236588584</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1608236588584</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,10 +315,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state width="1897" height="373" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1608236561748" />
-    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1608236472735">
+    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1608236590189">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608236472735" />
+    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608236590189" />
     <state x="729" y="466" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604411349976">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
