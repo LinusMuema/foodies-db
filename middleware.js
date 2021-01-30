@@ -1,47 +1,17 @@
 const jwt = require('jsonwebtoken')
-const userModel = require('./models/user')
-const responseHandler = require('./utils/responseHandler')
+const userModel = require('./models/user.js')
+const response = require('./utils/response')
 
 exports.verify = (req, res, next) => {
-    const token = req.headers.authorization
-    if (!token) return res.status(403).json({message: 'error', reason: 'please provide an bearer token'})
-    jwt.verify(token.split(" ")[1], process.env.TOKEN_SECRET, (err, value) => {
-        if (err) return responseHandler.handleServerError(res, 'failed to authenticate token')
-        let tokenData = value.split(".")
-        req.premium = tokenData[1]
-        req._id = tokenData[0]
+    const bearer = req.headers.authorization
+    if (!bearer) return res.status(403).json({message: 'please provide an bearer token'})
+
+    const token = bearer.split(" ")[1]
+    const secret = process.env.TOKEN_SECRET
+
+    jwt.verify(token, secret, (err, value) => {
+        if (err) return response.serverError(res, 'failed to authenticate token')
+        req.email = value.split(",")[1]
         next()
     })
-}
-
-exports.checkRecipeUpdate = (req, res, next) => {
-    req.calls = req.premium === true ?  10 : 5
-    userModel.User.findById(req._id)
-        .then(user => {
-            let date = user.update[0].split(",")[0]
-            let calls = user.update[0].split(",")[1]
-            if (parseInt(date) === new Date().getDate() && parseInt(calls) >= 1 )
-                return res.status(403).json({message: "error", reason: "daily limit reached"})
-            else
-                next()
-        })
-        .catch(error => {responseHandler.handleServerError(res, error)})
-}
-
-exports.checkSearchesUpdate = (req, res, next) => {
-    if (req.premium === false){
-        userModel.User.findById(req._id)
-            .then(user => {
-                let date = user.update[1].split(",")[0]
-                let calls = user.update[1].split(",")[1]
-                if (parseInt(date) === new Date().getDate() && parseInt(calls) >= 10 )
-                    return res.status(403).json({message: "error", reason: "daily search limit reached"})
-                else
-                    next()
-            })
-            .catch(error => {responseHandler.handleServerError(res, error)})
-    }
-    else {
-        next()
-    }
 }

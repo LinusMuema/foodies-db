@@ -26,7 +26,20 @@
   <component name="ChangeListManager">
     <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="- added logs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/intolerances.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/intolerances.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/recipes.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/recipes.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/intolerance.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/intolerance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/recipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/recipes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/responseHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/response.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +73,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.13.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="12.19.3" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.15.4" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.14.22" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -73,6 +86,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -169,7 +183,8 @@
       <workItem from="1604410628774" duration="1294000" />
       <workItem from="1604425098606" duration="2893000" />
       <workItem from="1607104570708" duration="2286000" />
-      <workItem from="1608226125248" duration="6534000" />
+      <workItem from="1608226125248" duration="7313000" />
+      <workItem from="1611993638934" duration="6663000" />
     </task>
     <task id="LOCAL-00001" summary="- added logs">
       <created>1607104634242</created>
@@ -269,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608236588584</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="- remove favorites doc">
+      <created>1608236719621</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1608236719621</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,36 +318,7 @@
     <MESSAGE value="- change favorites signature" />
     <MESSAGE value="- added log" />
     <MESSAGE value="- added favorites doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added favorites doc" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1897" height="373" key="GridCell.Tab.0.bottom" timestamp="1608236561748">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1608236561748" />
-    <state width="1897" height="373" key="GridCell.Tab.0.center" timestamp="1608236561747">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1608236561747" />
-    <state width="1897" height="373" key="GridCell.Tab.0.left" timestamp="1608236561747">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1608236561747" />
-    <state width="1897" height="373" key="GridCell.Tab.0.right" timestamp="1608236561748">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state width="1897" height="373" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1608236561748" />
-    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1608236590189">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="555" y="285" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1608236590189" />
-    <state x="729" y="466" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604411349976">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="729" y="466" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1053@0.27.1920.1053" timestamp="1604411349976" />
-    <state x="624" y="254" key="run.anything.popup" timestamp="1604426539920">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="624" y="254" key="run.anything.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1604426539920" />
+    <MESSAGE value="- remove favorites doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="- remove favorites doc" />
   </component>
 </project>

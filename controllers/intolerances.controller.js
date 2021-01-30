@@ -1,18 +1,20 @@
-const userModel = require('../models/user');
-const model = require('../models/intolerance');
-const responseHandler = require('../utils/responseHandler')
+const User = require('../models/user');
+const Intolerance = require('../models/intolerance');
 
-exports.getAllIntolerances = (req, res) => {
-    model.Intolerance.find()
-        .then(intolerances => {
-            if (!intolerances) return responseHandler.handleServerError(res, null)
-            res.status(200).json({message: 'success', intolerances})
-        })
-        .catch(_ => {responseHandler.handleServerError(res, "error getting intolerances")})
+exports.getAllIntolerances = async (req, res) => {
+    try {
+        const data = await Intolerance.find()
+        res.status(200).json(data)
+    } catch (err){
+        res.status(500).json({message: err.message})
+    }
 }
 
-exports.updateIntolerances = (req, res) => {
-     userModel.User.findByIdAndUpdate(req._id, {intolerances: req.body.intolerances})
-        .then(_ => {res.status(200).json({message: 'success', updated: true})})
-        .catch(_ => {responseHandler.handleServerError(res, "error updating intolerances")})
+exports.updateIntolerances = async (req, res) => {
+    try {
+        const update = await User.findOneAndUpdate({email: req.email}, {intolerances: req.body.intolerances}, {new: true})
+        res.status(200).json(update)
+    } catch (err){
+        res.status(500).json({message: err.message})
+    }
 }

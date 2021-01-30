@@ -1,8 +1,8 @@
-const userModel = require('../models/user')
+const userModel = require('../models/user.js')
 const recipeModel = require('../models/recipe')
 const utils = require('../utils/utils')
 const api = require('../utils/api')
-const responseHandler = require('../utils/responseHandler')
+const responseHandler = require('../utils/response')
 
 exports.getRandomRecipes = (req, res) => {
     userModel.User.findById(req._id)
