@@ -25,8 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="- added logs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/templates.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/templates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +172,7 @@
       <workItem from="1607104570708" duration="2286000" />
       <workItem from="1608226125248" duration="7313000" />
       <workItem from="1611993638934" duration="11433000" />
-      <workItem from="1612083320544" duration="8642000" />
+      <workItem from="1612083320544" duration="9165000" />
     </task>
     <task id="LOCAL-00001" summary="- added logs">
       <created>1607104634242</created>
@@ -301,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612092504682</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="- update the template">
+      <created>1612092616458</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1612092616458</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +338,7 @@
     <MESSAGE value="- finish refactor" />
     <MESSAGE value="- refactor app.js" />
     <MESSAGE value="- update auth controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="- update auth controller" />
+    <MESSAGE value="- update the template" />
+    <option name="LAST_COMMIT_MESSAGE" value="- update the template" />
   </component>
 </project>
