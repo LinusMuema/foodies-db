@@ -1,10 +1,22 @@
 const jwt = require('jsonwebtoken')
 const nodemailer = require("nodemailer");
-const sendinBlue = require('nodemailer-sendinblue-transport');
-const transporter = nodemailer.createTransport(sendinBlue({apiKey: process.env.SENDINBLUE_API_KEY}));
+
+const transporter = nodemailer.createTransport({
+    host: 'smtp-relay.sendinblue.com',
+    port: 587,
+    auth: {
+        user: 'linus.m.muema@gmail.com',
+        pass: process.env.SMTP_KEY
+    }
+});
 
 exports.sendEmail = async (recipient, subject, html) => {
-    const mailOptions = {from: 'moose.foodies@gmail.com', to: recipient, subject: subject, html: html};
+    const mailOptions = {
+        from: '"Admin" <admin@moose.ac>',
+        to: recipient,
+        subject: subject,
+        html: html
+    }
     return transporter.sendMail(mailOptions)
 }
 
