@@ -25,12 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="- added logs">
-      <change afterPath="$PROJECT_DIR$/views/templates.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/welcome.pug" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/templates.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/templates.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +173,7 @@
       <workItem from="1607104570708" duration="2286000" />
       <workItem from="1608226125248" duration="7313000" />
       <workItem from="1611993638934" duration="11433000" />
-      <workItem from="1612083320544" duration="8525000" />
+      <workItem from="1612083320544" duration="8642000" />
     </task>
     <task id="LOCAL-00001" summary="- added logs">
       <created>1607104634242</created>
@@ -298,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612087440360</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="- update auth controller">
+      <created>1612092504682</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1612092504682</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +331,7 @@
     <MESSAGE value="- remove favorites doc" />
     <MESSAGE value="- finish refactor" />
     <MESSAGE value="- refactor app.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="- refactor app.js" />
+    <MESSAGE value="- update auth controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="- update auth controller" />
   </component>
 </project>
