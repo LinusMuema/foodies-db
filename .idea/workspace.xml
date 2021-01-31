@@ -27,14 +27,12 @@
     <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="- added logs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/recipes.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/recipes.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/intolerance.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/intolerance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/recipe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/recipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/recipes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/confirm.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/info.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/reset.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/reset_form.pug" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +177,8 @@
       <workItem from="1604425098606" duration="2893000" />
       <workItem from="1607104570708" duration="2286000" />
       <workItem from="1608226125248" duration="7313000" />
-      <workItem from="1611993638934" duration="11402000" />
+      <workItem from="1611993638934" duration="11433000" />
+      <workItem from="1612083320544" duration="4010000" />
     </task>
     <task id="LOCAL-00001" summary="- added logs">
       <created>1607104634242</created>

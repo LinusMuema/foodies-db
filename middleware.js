@@ -1,17 +1,20 @@
 const jwt = require('jsonwebtoken')
-const userModel = require('./models/user.js')
-const response = require('./utils/response')
+const User = require('./models/user')
 
-exports.verify = (req, res, next) => {
+exports.verify = async (req, res, next) => {
     const bearer = req.headers.authorization
     if (!bearer) return res.status(403).json({message: 'please provide an bearer token'})
 
     const token = bearer.split(" ")[1]
     const secret = process.env.TOKEN_SECRET
 
-    jwt.verify(token, secret, (err, value) => {
-        if (err) return response.serverError(res, 'failed to authenticate token')
-        req.email = value.split(",")[1]
+    try {
+        const decode = jwt.verify(token, secret)
+        req.email = decode.split(',')[1]
+        req.user = await User.findOne({email: req.email})
         next()
-    })
+    } catch (err){
+        res.status(500).json({message: err.message})
+    }
 }
+

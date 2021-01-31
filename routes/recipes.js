@@ -3,7 +3,7 @@ const router = express.Router()
 const middleware = require('../middleware')
 const controller = require('../controllers/recipes.controller')
 
-router.get('/one/:id', middleware.verify, controller.getRecipeById)
+router.get('/:id', middleware.verify, controller.getRecipeById)
 
 router.get('/', middleware.verify, controller.getRandomRecipes)
 

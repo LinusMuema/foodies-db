@@ -1,5 +1,4 @@
 const axios = require('axios')
-const recipeModel = require('../models/recipe')
 const apiKey = process.env.SPOONACULAR_API_KEY
 const api = axios.create({
     baseURL: 'https://api.spoonacular.com/',
@@ -17,15 +16,17 @@ exports.getRecipeInstructions = async (id) => {
     let equipment = [];
     let sections = [];
     const instructions = await api.get(`recipes/${id}/analyzedInstructions?apiKey=${apiKey}`)
-    instructions.data.forEach(instruction => {
+    instructions.data.forEach(instruction => getSteps(instruction))
+
+    async function getSteps(instruction){
         const steps = []
         instruction.steps.forEach(step => {
             steps.push({number: step.number, instruction: step.step})
             ingredients = ingredients.concat(step.ingredients)
             equipment = equipment.concat(step.equipment)
         })
-        sections.push(new recipeModel.Section({name: process.name, steps: steps}))
-    })
+        sections.push({name: instruction.name, steps: steps})
+    }
 
     return {ingredients, equipment, sections}
 }
