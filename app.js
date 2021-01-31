@@ -28,13 +28,13 @@ app.use('/api/auth', authRouter);
 app.use('/api/intolerances', intoleranceRouter);
 app.use('/api/recipes', recipesRoute)
 
-//Database config
-const options = {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true}
-await mongoose.connect(process.env.MONGODB_URL || uri, options)
-
-
-app.listen(process.env.PORT || 2400, () => {
+app.listen(process.env.PORT || 2400, async () => {
     console.log('server started : 2400')
+
+    //Database config
+    const options = {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true}
+    await mongoose.connect(process.env.MONGODB_URL || uri, options)
+    console.log('Connected to DB successfully')
 });
 
 module.exports = app;

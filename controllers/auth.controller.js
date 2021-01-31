@@ -1,12 +1,19 @@
 const validator = require('deep-email-validator');
-const utils = require("../utils/utils");
-const User = require("../models/user");
+const utils = require('../utils/utils');
+const templates = require('../views/templates')
+const User = require('../models/user');
+
 
 async function registerUser(email) {
     const validation = await validator.validate(email)
     if (!validation.valid) throw Error('Email is not valid')
-    new User({email: email}).save()
-    return utils.generateAccessToken(email)
+
+    const token = utils.generateAccessToken(email)
+    const user = User({email: email}).save()
+    const smtp = utils.sendEmail(email, 'Welcome to Foodies', templates.welcome)
+    await Promise.all([user, smtp, token])
+
+    return token
 }
 
 exports.register = async (req, res) => {
