@@ -29,11 +29,11 @@ app.use('/api/intolerances', intoleranceRouter);
 app.use('/api/recipes', recipesRoute)
 
 //Database config
-mongoose.connect(process.env.MONGODB_URL || uri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true})
-    .then(() => console.log('DB opened successfully'));
+const options = {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true}
+await mongoose.connect(process.env.MONGODB_URL || uri, options)
 
 
-app.listen(process.env.PORT || 2400, (req, res) => {
+app.listen(process.env.PORT || 2400, () => {
     console.log('server started : 2400')
 });
 
