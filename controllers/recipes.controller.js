@@ -3,9 +3,9 @@ const api = require('../utils/api')
 exports.getRandomRecipes = async (req, res) => {
     try {
         const intolerances = req.user.intolerances.map(item => item.name)
-        const recipes = await api.getRandomRecipes(intolerances)
-        const [joke, trivia, data] = await Promise.all([api.getJoke(), api.getTrivia(), getInstructions(recipes)])
-        res.status(200).json({joke, trivia, data})
+        const data = await api.getRandomRecipes(intolerances)
+        const [joke, trivia, recipes] = await Promise.all([api.getJoke(), api.getTrivia(), getInstructions(data)])
+        res.status(200).json({joke, trivia, recipes})
 
     } catch (err){
         res.status(500).json({message: err.message})
@@ -14,7 +14,7 @@ exports.getRandomRecipes = async (req, res) => {
     async function getInstructions(recipes){
         const instructions = recipes.map(async recipe => {
             const instructions = await api.getRecipeInstructions(recipe.id)
-            return {id: recipe.id, recipe, instructions}
+            return {id: recipe.id, info: recipe, instructions}
         })
         return await Promise.all(instructions)
     }
