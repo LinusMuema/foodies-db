@@ -7,6 +7,9 @@ exports.getRandomRecipes = async (req, res) => {
         const [joke, trivia, recipes] = await Promise.all([api.getJoke(), api.getTrivia(), getInstructions(data)])
         res.status(200).json({joke, trivia, recipes})
 
+        // Post request update
+        req.user.lastUpdate = new Date().getDate()
+        req.user.save()
     } catch (err){
         res.status(500).json({message: err.message})
     }

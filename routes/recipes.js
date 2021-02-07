@@ -5,7 +5,7 @@ const controller = require('../controllers/recipes.controller')
 
 router.get('/:id', middleware.verify, controller.getRecipeById)
 
-router.get('/', middleware.verify, controller.getRandomRecipes)
+router.get('/', [middleware.verify, middleware.checkLimit], controller.getRandomRecipes)
 
 router.get('/favorites', middleware.verify, controller.getFavorites)
 
