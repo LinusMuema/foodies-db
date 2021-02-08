@@ -5,6 +5,11 @@ const api = axios.create({
     timeout: 10000
 })
 
+exports.getRecipeById = async (id) => {
+    const response = await api.get(`/recipes/${id}/information?apiKey=${apiKey}`)
+    return {image: response.data.image, title: response.data.title}
+}
+
 exports.getRandomRecipes = async (intolerances) => {
     const url = `recipes/complexSearch?number=10&query=any&intolerances=${intolerances},&instructionsRequired=true&sort=random&apiKey=${apiKey}`
     const request = await api.get(url)

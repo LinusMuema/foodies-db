@@ -60,7 +60,10 @@ exports.getRecipesByIngredients = async (req, res) => {
 
 exports.getRecipeById = async (req, res) => {
     try {
+        const info = await api.getRecipeById(req.params.id)
         const recipe = await api.getRecipeInstructions(req.params.id)
+        recipe.info = info
+        recipe.id = req.params.id
         res.status(200).json(recipe)
     } catch (err){
         res.status(500).json({message: err.message})
