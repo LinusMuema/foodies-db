@@ -61,8 +61,7 @@ exports.getRecipesByIngredients = async (req, res) => {
 exports.getRecipeById = async (req, res) => {
     const id = parseInt(req.params.id)
     try {
-        const info = await api.getRecipeById(id)
-        const instructions = await api.getRecipeInstructions(id)
+        const [info, instructions] = await Promise.all([api.getRecipeById(id), api.getRecipeInstructions(id)])
         res.status(200).json({id, info, instructions})
     } catch (err){
         res.status(500).json({message: err.message})
