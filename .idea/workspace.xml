@@ -24,10 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="- added logs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/recipes.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/recipes.controller.js" afterDir="false" />
-    </list>
+    <list default="true" id="9387d500-0746-4982-ac12-24bc7965edf6" name="Default Changelist" comment="- added logs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +190,7 @@
       <workItem from="1612888345503" duration="46000" />
       <workItem from="1612888829201" duration="427000" />
       <workItem from="1612890048917" duration="68000" />
-      <workItem from="1612946499421" duration="132000" />
+      <workItem from="1612946499421" duration="185000" />
     </task>
     <task id="LOCAL-00001" summary="- added logs">
       <created>1607104634242</created>
@@ -377,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612888370971</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="- start async work from array">
+      <created>1612946646157</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1612946646158</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,6 +420,7 @@
     <MESSAGE value="- added info to response object" />
     <MESSAGE value="- added the id parseInt" />
     <MESSAGE value="- edit the ingredients route" />
-    <option name="LAST_COMMIT_MESSAGE" value="- edit the ingredients route" />
+    <MESSAGE value="- start async work from array" />
+    <option name="LAST_COMMIT_MESSAGE" value="- start async work from array" />
   </component>
 </project>
