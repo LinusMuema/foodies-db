@@ -23,8 +23,10 @@ exports.register = async (req, res) => {
     let token = {}
     try {
         const user = await User.findOne({email: email})
+
         if (user) token = await utils.generateAccessToken(email)
         else token = await registerUser(email)
+
         res.status(200).json({token, type})
     } catch (err){
         res.status(500).json({message: err.message})
