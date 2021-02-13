@@ -3,7 +3,7 @@ const utils = require('../utils/utils');
 const templates = require('../views/templates')
 const User = require('../models/user');
 
-let type = "signup"
+let type = 'login'
 
 async function registerUser(email) {
     const validation = await validator.validate(email)
@@ -14,7 +14,7 @@ async function registerUser(email) {
     const smtp = utils.sendEmail(email, 'Welcome to Foodies', templates.welcome)
     await Promise.all([user, smtp, token])
 
-    type = "login"
+    type = 'signup'
     return token
 }
 
