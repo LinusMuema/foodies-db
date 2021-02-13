@@ -24,7 +24,13 @@ exports.getRandomRecipes = async (req, res) => {
 }
 
 exports.getFavorites = async (req, res) => {
-    res.status(200).json(req.user.favorites)
+    try {
+        res.status(200).json(req.user.favorites)
+    }
+    catch (err){
+        console.log(err)
+        res.status(500).json({message: err.message})
+    }
 }
 
 exports.updateFavorites = async (req, res) => {
@@ -32,9 +38,7 @@ exports.updateFavorites = async (req, res) => {
         req.user.favorites = req.body.recipes
         const update = await req.user.save()
         res.status(200).json({status: 'success', update})
-    } catch (err){
-        res.status(500).json({message: err.message})
-    }
+    } catch (err){ res.status(500).json({message: err.message}) }
 }
 
 
