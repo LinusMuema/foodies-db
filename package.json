@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js",
-    "prod": "node app.js"
+    "start": "nodemon index.js",
+    "prod": "node index.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -16,6 +16,7 @@
     "mongoose": "^5.9.14",
     "nodemailer": "^6.4.6",
     "nodemailer-sendinblue-transport": "^1.2.3",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "pug": "^3.0.0"
   }
 }

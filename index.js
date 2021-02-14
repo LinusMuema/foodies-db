@@ -16,6 +16,10 @@ app.use('/api/auth', authRouter);
 app.use('/api/intolerances', intoleranceRouter);
 app.use('/api/recipes', recipesRoute)
 
+app.set('view engine', 'pug');
+app.get('/', (req, res) => res.render('index'))
+app.get('/recipes', (req, res) => res.redirect('/'))
+
 app.listen(process.env.PORT || 2400, async () => {
     console.log('server started : 2400')
 
