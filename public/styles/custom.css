@@ -1,8 +1,11 @@
 html, body { height: 100%; }
-body { overflow: hidden; }
+body {
+    background: linear-gradient(#FCF7F8 90% ,#943126 100%);
+    overflow: hidden;
+}
 
 .ocean {
-    height: 5%;
+    height: auto;
     width:100%;
     position:absolute;
     bottom:0;
@@ -13,15 +16,15 @@ body { overflow: hidden; }
 .wave {
     background: url(../images/wave.svg) repeat-x;
     position: absolute;
-    top: -198px;
+    top: -200px;
     width: 6400px;
-    height: 198px;
+    height: 200px;
     animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
     transform: translate3d(0, 0, 0);
 }
 
 .wave:nth-of-type(2) {
-    top: -175px;
+    top: -185px;
     animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
     opacity: 1;
 }
