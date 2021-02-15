@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "start": "nodemon index.js",
-    "prod": "node index.js"
+    "prod": "node index.js",
+    "tailwind:css": "postcss public/styles/tailwind.css -o public/styles/style.css"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   },
   "dependencies": {
+    "autoprefixer": "^10.2.4",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "deep-email-validator": "^0.1.18",
@@ -16,7 +21,9 @@
     "mongoose": "^5.9.14",
     "nodemailer": "^6.4.6",
     "nodemailer-sendinblue-transport": "^1.2.3",
-    "nodemon": "^2.0.4",
-    "pug": "^3.0.0"
+    "postcss": "^8.2.6",
+    "postcss-cli": "^8.3.1",
+    "pug": "^3.0.0",
+    "tailwindcss": "^2.0.3"
   }
 }
