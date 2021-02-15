@@ -1,6 +1,6 @@
 html, body { height: 100%; }
 body {
-    background: linear-gradient(#FCF7F8 90% ,#943126 100%);
+    background: linear-gradient(#ffffff 0%, #FCF7F8 90% ,#943126 100%);
     overflow: hidden;
 }
 
@@ -24,7 +24,7 @@ body {
 }
 
 .wave:nth-of-type(2) {
-    top: -185px;
+    top: -175px;
     animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
     opacity: 1;
 }
