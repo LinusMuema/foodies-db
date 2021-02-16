@@ -48,7 +48,7 @@ exports.getTrivia = async () => {
 
 exports.searchRecipeVideos = (name) => {
     return new Promise((resolve, reject) => {
-        api.get(`food/videos/search?query=${name}&number=5&apiKey=${apiKey}`)
+        api.get(`food/videos/search?query=${name}&number=20&apiKey=${apiKey}`)
             .then(response => {resolve(response.data.videos)})
             .catch(error => {reject(error)})
     })
@@ -56,7 +56,7 @@ exports.searchRecipeVideos = (name) => {
 
 exports.searchRecipe = (name, intolerances) => {
     return new Promise((resolve, reject) => {
-        api.get(`recipes/search?number=5&query=${name}&intolerances=${intolerances},&instructionsRequired=true&apiKey=${apiKey}`)
+        api.get(`recipes/search?number=20&query=${name}&intolerances=${intolerances},&instructionsRequired=true&apiKey=${apiKey}`)
             .then(response => {resolve(response.data.results)})
             .catch(error => {reject(error)})
     })
@@ -64,7 +64,7 @@ exports.searchRecipe = (name, intolerances) => {
 
 exports.searchRecipeByIngredients = (ingredients) => {
     return new Promise((resolve, reject) => {
-        api.get(`recipes/findByIngredients?number=5&ingredients=${ingredients},&ranking=1&ignorePantry=true&instructionsRequired=true&apiKey=${apiKey}`)
+        api.get(`recipes/findByIngredients?number=20&ingredients=${ingredients},&ranking=1&ignorePantry=true&instructionsRequired=true&apiKey=${apiKey}`)
             .then(response => {resolve(response.data)})
             .catch(error => {reject(error)})
     })
