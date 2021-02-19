@@ -48,13 +48,13 @@ exports.getTrivia = async () => {
 
 exports.searchRecipeVideos = async  (name) => {
     const request = await api.get(`food/videos/search?query=${name}&number=10&apiKey=${apiKey}`);
-    return request.data;
+    return request.data.videos;
 }
 
 exports.searchRecipe = async (name, intolerances) => {
     const url = `recipes/search?number=10&query=${name}&intolerances=${intolerances},&instructionsRequired=true&apiKey=${apiKey}`
     const request = await api.get(url);
-    return request.data;
+    return request.data.results;
 }
 
 exports.searchRecipeByIngredients = async (ingredients) => {
