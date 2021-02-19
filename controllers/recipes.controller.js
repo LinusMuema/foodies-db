@@ -6,10 +6,6 @@ exports.getRandomRecipes = async (req, res) => {
         const data = await api.getRandomRecipes(intolerances)
         const [joke, trivia, recipes] = await Promise.all([api.getJoke(), api.getTrivia(), getInstructions(data)])
         res.status(200).json({joke, trivia, recipes})
-
-        // Post request update
-        req.user.lastUpdate = new Date().getDate()
-        req.user.save()
     } catch (err){
         res.status(500).json({message: err.message})
     }
@@ -24,13 +20,8 @@ exports.getRandomRecipes = async (req, res) => {
 }
 
 exports.getFavorites = async (req, res) => {
-    try {
-        res.status(200).json(req.user.favorites)
-    }
-    catch (err){
-        console.log(err)
-        res.status(500).json({message: err.message})
-    }
+    try { res.status(200).json(req.user.favorites)}
+    catch (err){ res.status(500).json({message: err.message})}
 }
 
 exports.updateFavorites = async (req, res) => {

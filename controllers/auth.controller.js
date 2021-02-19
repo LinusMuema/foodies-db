@@ -32,3 +32,11 @@ exports.register = async (req, res) => {
         res.status(500).json({message: err.message})
     }
 }
+
+exports.updateUser = async (req, res) => {
+    try {
+        req.user.lastUpdate = new Date().getDate()
+        await req.user.save()
+        res.status(202).json({message: 'success'})
+    } catch (e) { res.status(500).json({message: e.message}) }
+}
