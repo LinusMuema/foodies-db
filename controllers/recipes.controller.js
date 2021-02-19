@@ -33,7 +33,7 @@ exports.updateFavorites = async (req, res) => {
 }
 
 
-exports.getRecipeByName = async (req, res) => {
+exports.searchRecipes = async (req, res) => {
     try {
         const intolerances = req.user.intolerances.map(item => item.name)
         const query = req.params.query

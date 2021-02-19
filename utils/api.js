@@ -46,8 +46,19 @@ exports.getTrivia = async () => {
     return request.data.text
 }
 
-exports.searchRecipeVideos = async  (name) => api.get(`food/videos/search?query=${name}&number=10&apiKey=${apiKey}`)
+exports.searchRecipeVideos = async  (name) => {
+    const request = await api.get(`food/videos/search?query=${name}&number=10&apiKey=${apiKey}`);
+    return request.data;
+}
 
-exports.searchRecipe = async (name, intolerances) => api.get(`recipes/search?number=10&query=${name}&intolerances=${intolerances},&instructionsRequired=true&apiKey=${apiKey}`)
+exports.searchRecipe = async (name, intolerances) => {
+    const url = `recipes/search?number=10&query=${name}&intolerances=${intolerances},&instructionsRequired=true&apiKey=${apiKey}`
+    const request = await api.get(url);
+    return request.data;
+}
 
-exports.searchRecipeByIngredients = (ingredients) =>  api.get(`recipes/findByIngredients?number=10&ingredients=${ingredients},&ranking=1&ignorePantry=true&instructionsRequired=true&apiKey=${apiKey}`)
+exports.searchRecipeByIngredients = async (ingredients) => {
+    const url = `recipes/findByIngredients?number=10&ingredients=${ingredients},&ranking=1&ignorePantry=true&instructionsRequired=true&apiKey=${apiKey}`
+    const request = await api.get(url);
+    return request.data;
+}
