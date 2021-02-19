@@ -1,12 +1,78 @@
 doctype html
-html(lang='en')
-    meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Foodies
+    link(href='https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css' rel='stylesheet')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet')
     link(href="./styles/style.css", rel="stylesheet")
     link(href="./styles/custom.css" rel="stylesheet")
-    body
-        .ocean
-            .wave
-            .wave
+.content.flex.items-center.justify-center.h-screen.w-full.relative.z-50
+    .overflow-hidden.w-full(class='md:w-1/3 md:mx-24')
+        h1.text-center.text-2xl.font-black(class='md:text-3xl') Foodies
+        img.block.h-auto.w-full(alt='chef' src='./images/cook.svg')
+        .p-4
+            h1.text-lg.font-black.text-center.m-4(class='md:text-xl') What's New...
+            .slideshow-container
+                div
+                    h1.mySlides.transition.duration-300.ease-in-out.text-lg.font-light.text-center Improved user experience with a better authentication process
+                    h1.mySlides.transition.duration-300.ease-in-out.text-lg.font-light.text-center Save unlimited favorites & no limit on searches
+                    h1.mySlides.transition.duration-300.ease-in-out.text-lg.font-light.text-center More daily recipes for you to try out. Double the previous count
+                    h1.mySlides.transition.duration-300.ease-in-out.text-lg.font-light.text-center New functionality to share your favorite recipes
+            br
+            div(style='text-align: center;')
+                span.dot(onclick='currentSlide(1)')
+                span.dot(onclick='currentSlide(2)')
+                span.dot(onclick='currentSlide(3)')
+                span.dot(onclick='currentSlide(4)')
+            .w-full.p-4.flex.justify-center
+                a.h-auto(href='https://play.google.com/store/apps/details?id=com.moose.foodies' class='w-1/2 md:w-1/3')
+                    img(src='./images/google-play.png' alt='play-store')
+.ocean
+    .wave
+    .wave
+script.
+    let slideIndex = 1;
+    let myTimer;
+    let slideshowContainer;
+    window.addEventListener("load",() => {
+        showSlides(slideIndex);
+        myTimer = setInterval(() => { plusSlides(1) }, 5000);
+        slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
+    })
+    //Controls the current slide and resets interval if needed
+    function currentSlide(n){
+        clearInterval(myTimer);
+        myTimer = setInterval(function(){plusSlides(n + 1)}, 5000);
+        showSlides(slideIndex = n);
+    }
+    // NEXT AND PREVIOUS CONTROLs
+    function plusSlides(n){
+        clearInterval(myTimer);
+        n < 0 ? showSlides(slideIndex -= 1) : showSlides(slideIndex += 1)
+        n === -1
+            ? myTimer = setInterval(function(){plusSlides(n + 2)}, 5000)
+            : myTimer = setInterval(function(){plusSlides(n + 1)}, 5000)
+    }
+    function showSlides(n){
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+    pause = () => {
+        clearInterval(myTimer);
+    }
+    resume = () =>{
+        clearInterval(myTimer);
+        myTimer = setInterval(function(){plusSlides(slideIndex)}, 5000);
+    }
