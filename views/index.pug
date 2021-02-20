@@ -16,8 +16,6 @@ head
     link(href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet')
     link(href="./styles/style.css", rel="stylesheet")
     link(href="./styles/custom.css" rel="stylesheet")
-.loader.bg-white.flex.items-center.justify-center.h-screen.w-full.relative.z-50
-    img(src='./images/loading.gif' alt='loader')
 .content.flex.items-center.justify-center.h-screen.w-full.relative.z-50
     .overflow-hidden.w-full(class='md:w-1/3 md:mx-24')
         h1.text-center.text-2xl.font-black(class='md:text-3xl') Foodies
@@ -45,10 +43,6 @@ head
 script.
     let slideIndex = 1, myTimer, slideshowContainer, loader;
     window.addEventListener("load",() => {
-        // hide the loader
-        loader = document.getElementsByClassName("loader");
-        loader[0].className += " hidden"
-
         showSlides(slideIndex);
         myTimer = setInterval(() => { plusSlides(1) }, 5000);
         slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
