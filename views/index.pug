@@ -16,6 +16,8 @@ head
     link(href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet')
     link(href="./styles/style.css", rel="stylesheet")
     link(href="./styles/custom.css" rel="stylesheet")
+.loader.bg-white.flex.items-center.justify-center.h-screen.w-full.relative.z-50
+    img(src='loading.gif' alt='loader')
 .content.flex.items-center.justify-center.h-screen.w-full.relative.z-50
     .overflow-hidden.w-full(class='md:w-1/3 md:mx-24')
         h1.text-center.text-2xl.font-black(class='md:text-3xl') Foodies
@@ -41,10 +43,12 @@ head
     .wave
     .wave
 script.
-    let slideIndex = 1;
-    let myTimer;
-    let slideshowContainer;
+    let slideIndex = 1, myTimer, slideshowContainer, loader;
     window.addEventListener("load",() => {
+        // hide the loader
+        loader = document.getElementsByClassName("loader");
+        loader[0].className += " hidden"
+
         showSlides(slideIndex);
         myTimer = setInterval(() => { plusSlides(1) }, 5000);
         slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
@@ -55,13 +59,13 @@ script.
         myTimer = setInterval(function(){plusSlides(n + 1)}, 5000);
         showSlides(slideIndex = n);
     }
-    // NEXT AND PREVIOUS CONTROLs
+    // NEXT AND PREVIOUS CONTROLS
     function plusSlides(n){
         clearInterval(myTimer);
         n < 0 ? showSlides(slideIndex -= 1) : showSlides(slideIndex += 1)
         n === -1
-            ? myTimer = setInterval(function(){plusSlides(n + 2)}, 5000)
-            : myTimer = setInterval(function(){plusSlides(n + 1)}, 5000)
+            ? myTimer = setInterval(() => {plusSlides(n + 2)}, 5000)
+            : myTimer = setInterval(() => {plusSlides(n + 1)}, 5000)
     }
     function showSlides(n){
         const slides = document.getElementsByClassName("mySlides");
@@ -82,5 +86,5 @@ script.
     }
     resume = () =>{
         clearInterval(myTimer);
-        myTimer = setInterval(function(){plusSlides(slideIndex)}, 5000);
+        myTimer = setInterval(() => {plusSlides(slideIndex)}, 5000);
     }
