@@ -41,16 +41,16 @@ head
     .wave
     .wave
 script.
-    let slideIndex = 1, myTimer, slideshowContainer, loader;
+    let slideIndex = 1, myTimer, slideshowContainer;
     window.addEventListener("load",() => {
         showSlides(slideIndex);
-        myTimer = setInterval(() => { plusSlides(1) }, 5000);
+        myTimer = setInterval(() => { plusSlides(1) }, 3000);
         slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
     })
     //Controls the current slide and resets interval if needed
     function currentSlide(n){
         clearInterval(myTimer);
-        myTimer = setInterval(function(){plusSlides(n + 1)}, 5000);
+        myTimer = setInterval(function(){plusSlides(n + 1)}, 3000);
         showSlides(slideIndex = n);
     }
     // NEXT AND PREVIOUS CONTROLS
@@ -58,8 +58,8 @@ script.
         clearInterval(myTimer);
         n < 0 ? showSlides(slideIndex -= 1) : showSlides(slideIndex += 1)
         n === -1
-            ? myTimer = setInterval(() => {plusSlides(n + 2)}, 5000)
-            : myTimer = setInterval(() => {plusSlides(n + 1)}, 5000)
+            ? myTimer = setInterval(() => {plusSlides(n + 2)}, 3000)
+            : myTimer = setInterval(() => {plusSlides(n + 1)}, 3000)
     }
     function showSlides(n){
         const slides = document.getElementsByClassName("mySlides");
@@ -80,5 +80,5 @@ script.
     }
     resume = () =>{
         clearInterval(myTimer);
-        myTimer = setInterval(() => {plusSlides(slideIndex)}, 5000);
+        myTimer = setInterval(() => {plusSlides(slideIndex)}, 3000);
     }
