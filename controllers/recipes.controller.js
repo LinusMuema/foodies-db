@@ -26,8 +26,8 @@ exports.getFavorites = async (req, res) => {
 exports.updateFavorites = async (req, res) => {
     try {
         req.user.favorites = req.body.recipes
-        const update = await req.user.save()
-        res.status(200).json({status: 'success', update})
+        await req.user.save()
+        res.status(200).json({status: 'success'})
     } catch (e){ response.serverError(res, e.message) }
 }
 
