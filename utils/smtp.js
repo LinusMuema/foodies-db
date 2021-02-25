@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken')
 const nodemailer = require("nodemailer");
+const axios = require('axios');
 
 const transporter = nodemailer.createTransport({
     host: 'smtp-relay.sendinblue.com',
@@ -20,7 +20,12 @@ exports.sendEmail = async (recipient, subject, html) => {
     return transporter.sendMail(mailOptions)
 }
 
-exports.generateAccessToken = async (email) => {
-    const payload = `${Date},${email}`
-    return jwt.sign(payload, process.env.TOKEN_SECRET);
+exports.updateEmails = async (email) => {
+    const api = axios.create({
+        baseURL: 'https://api.sendinblue.com/v3/',
+        headers: {
+            "api-key": process.env.SENDINBLUE_API_KEY
+        }
+    })
+    return api.post('/contacts', {email: email})
 }
