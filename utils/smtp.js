@@ -1,5 +1,11 @@
 const nodemailer = require("nodemailer");
 const axios = require('axios');
+const api = axios.create({
+    baseURL: 'https://api.sendinblue.com/v3/',
+    headers: {
+        "api-key": process.env.SENDINBLUE_API_KEY
+    }
+})
 
 const transporter = nodemailer.createTransport({
     host: 'smtp-relay.sendinblue.com',
@@ -21,11 +27,5 @@ exports.sendEmail = async (recipient, subject, html) => {
 }
 
 exports.updateEmails = async (email) => {
-    const api = axios.create({
-        baseURL: 'https://api.sendinblue.com/v3/',
-        headers: {
-            "api-key": process.env.SENDINBLUE_API_KEY
-        }
-    })
     return api.post('/contacts', {email: email})
 }
