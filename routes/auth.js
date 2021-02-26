@@ -7,6 +7,4 @@ router.post('/register', controller.register);
 
 router.put('/relay', middleware.verify , controller.updateUser)
 
-router.get('/update', controller.updateEmails)
-
 module.exports = router;
