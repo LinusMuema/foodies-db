@@ -7,12 +7,11 @@ const authRouter = require('./routes/auth');
 const intoleranceRouter = require('./routes/intolerances')
 const recipesRoute = require('./routes/recipes')
 const app = express();
-const bodyParser = require('body-parser');
 const uri = 'mongodb://localhost/foodies';
 
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', authRouter);
 app.use('/api/intolerances', intoleranceRouter);
