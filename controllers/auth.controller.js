@@ -9,44 +9,44 @@ const bcrypt = require('../utils/bcrypt');
 
 let type = 'login'
 
-// //Authentication update
-// exports.authenticate = async (req, res) => {
-//     const email = req.body.email
-//     const password = req.body.password
-//     let token = {}
-//     try {
-//         const user = await User.findOne({email: email})
-//         if (user){
-//             if (user.password === undefined){
-//                 user.password = await bcrypt.hashPassword(password)
-//                 token = await jwt.generateAccessToken(email)
-//                 user.save()
-//             }
-//             else {
-//                 const verify = await bcrypt.verifyPassword(password, user.password)
-//                 if (verify) token = await jwt.generateAccessToken(email)
-//                 else return response.forbiddenError(res, "passwords do not match")
-//             }
-//         }
-//         else token = await altRegister(res, req.body)
-//         res.status(200).json({token, type})
-//     } catch (e){ response.serverError(res, e.message)}
-// }
-//
-// async function altRegister(res, body){
-//     const validation = await validator.validate(body.email)
-//     if (!validation.valid) return response.forbiddenError(res, "email is not valid")
-//
-//     const token = jwt.generateAccessToken(body.email)
-//     const hash = await bcrypt.hashPassword(body.password)
-//     const user = User({email: body.email, password: hash}).save()
-//     const sendEmail = smtp.sendEmail(body.email, 'Welcome to Foodies', templates.welcome)
-//     const updateEmails = smtp.updateEmails(body.email);
-//     await Promise.all([user, sendEmail, token, updateEmails])
-//
-//     type = 'signup'
-//     return token
-// }
+//Authentication update
+exports.authenticate = async (req, res) => {
+    const email = req.body.email
+    const password = req.body.password
+    let token = {}
+    try {
+        const user = await User.findOne({email: email})
+        if (user){
+            if (user.password === undefined){
+                user.password = await bcrypt.hashPassword(password)
+                token = await jwt.generateAccessToken(email)
+                user.save()
+            }
+            else {
+                const verify = await bcrypt.verifyPassword(password, user.password)
+                if (verify) token = await jwt.generateAccessToken(email)
+                else return response.forbiddenError(res, "passwords do not match")
+            }
+        }
+        else token = await altRegister(res, req.body)
+        res.status(200).json({token, type})
+    } catch (e){ response.serverError(res, e.message)}
+}
+
+async function altRegister(res, body){
+    const validation = await validator.validate(body.email)
+    if (!validation.valid) return response.forbiddenError(res, "email is not valid")
+
+    const token = jwt.generateAccessToken(body.email)
+    const hash = await bcrypt.hashPassword(body.password)
+    const user = User({email: body.email, password: hash}).save()
+    const sendEmail = smtp.sendEmail(body.email, 'Welcome to Foodies', templates.welcome)
+    const updateEmails = smtp.updateEmails(body.email);
+    await Promise.all([user, sendEmail, token, updateEmails])
+
+    type = 'signup'
+    return token
+}
 
 exports.upload = async (req, res) => {
     try {
@@ -56,14 +56,18 @@ exports.upload = async (req, res) => {
 }
 
 exports.update = async  (req, res) => {
+    const username = req.body.username
+    const avatar = req.body.avatar
     try {
         const exists = await User.findOne({username: req.body.username})
-        if (!exists){
-            req.user.username = req.body.username
-            req.user.avatar = req.body.avatar
-            await req.user.save()
-            res.status(200).json({updated: true})
-        } else return response.forbiddenError(res, "the username is already taken")
+        if (exists && exists.email !== req.user.email)
+            return response.forbiddenError(res, "the username is already taken")
+        else {
+            req.user.username = username
+            req.user.avatar = avatar
+            const update = await req.user.save()
+            res.status(200).json({update, updated: true})
+        }
     } catch (e){ response.serverError(res, e.message)}
 }
 
