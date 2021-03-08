@@ -7,11 +7,12 @@ const authRouter = require('./routes/auth');
 const intoleranceRouter = require('./routes/intolerances')
 const recipesRoute = require('./routes/recipes')
 const app = express();
+const bodyParser = require('body-parser');
 const uri = 'mongodb://localhost/foodies';
 
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/auth', authRouter);
 app.use('/api/intolerances', intoleranceRouter);
@@ -20,6 +21,8 @@ app.use('/api/recipes', recipesRoute)
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')))
+
+// Load homepage
 app.get('/', (req, res) => res.render('index'))
 app.get('/recipes', (req, res) => res.redirect('/'))
 
