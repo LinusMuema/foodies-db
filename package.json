@@ -23,7 +23,7 @@
     "mongoose": "^5.9.14",
     "multer": "^1.4.2",
     "nodemailer": "^6.4.6",
-    "postcss": "^8.2.6",
+    "postcss": "^8.2.10",
     "postcss-cli": "^8.3.1",
     "pug": "^3.0.2",
     "tailwindcss": "^2.0.3"
